@@ -6,4 +6,13 @@ router.get('/', function(req, res, next) {
   res.send('project');
 });
 
+
+// router.get('/',Projects);
+// router.post('/add',AddProject);
+// router.put('/update',UpdateProject);
+
+
+// //op
+// router.delete('/delete',DeleteProject);
+
 module.exports = router;

@@ -9,8 +9,8 @@ const {
 
 /* GET home page. */
 router.get('/',Users );
-
 router.post('/sign_in', SignIn);
 router.post('/sign_up', SignUp);
+// router.put('/update', Update);
 
 module.exports = router;

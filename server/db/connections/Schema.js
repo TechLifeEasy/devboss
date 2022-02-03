@@ -29,10 +29,9 @@ const ProjectSchema = new Schema({
     comment: [CommentSchema],
     creator: String,
     state:String,
+    tech:[String],
+    isIdea:Boolean
 }, { versionKey: false, timestamps: true });
-
-
-
 
 
 
@@ -55,6 +54,7 @@ const SourceSchema = new Schema({
     upVote: [String],
     comment: [CommentSchema],
     creator: String,
+    tech:[String]
 }, { versionKey: false, timestamps: true });
 
 
