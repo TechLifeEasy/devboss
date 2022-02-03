@@ -1,90 +1,70 @@
 require('dotenv').config();
-const mongoose =require('mongoose');
+const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
 const UserSchema = new Schema({
-  name:  String, 
-  title: String,
-  img:'String',
-  url:   String,
-  like:Number,
-  topic:String,
-  creator:String,
-  summery:String,
+    name: String,
+    bio: String,
+    image: String,
+    email: String,
+    password: String,
+    github: String,
+    twitter: String,
+    linkedin: String,
+    discord: String,
+}, { versionKey: false, timestamps: true });
 
-},{ versionKey: false,timestamps: true });
+var CommentSchema = new Schema({
+    name:String,
+    commentLike:[String],
+}, { versionKey: false, timestamps: true });
 
 
-const ProjectSchema=new Schema({
-    name:  String, 
+const ProjectSchema = new Schema({
     title: String,
-    img:'String',
-    url:   String,
-    like:Number,
-    topic:String,
-    creator:String,
-    summery:String,
-  
-},{ versionKey: false,timestamps: true });
+    description: String,
+    demoLink: String,
+    upVote: [String],
+    comment: [CommentSchema],
+    creator: String,
+    state:String,
+}, { versionKey: false, timestamps: true });
 
 
-const CommentSchema=new Schema({
-    name:  String, 
+
+
+
+
+const FindSchema = new Schema({
     title: String,
-    img:'String',
-    url:   String,
-    like:Number,
-    topic:String,
-    creator:String,
-    summery:String,
-  
-},{ versionKey: false,timestamps: true });
+    description: String,
+    link: String,
+    creator: String,
+    state:String,
+    type:String,
+}, { versionKey: false, timestamps: true });
 
 
 
-const IdeaSchema=new Schema({
-    name:  String, 
+const SourceSchema = new Schema({
     title: String,
-    img:'String',
-    url:   String,
-    like:Number,
-    topic:String,
-    creator:String,
-    summery:String,
-  
-},{ versionKey: false,timestamps: true });
-
-
-
-const SourceSchema=new Schema({
-    name:  String, 
-    title: String,
-    img:'String',
-    url:   String,
-    like:Number,
-    topic:String,
-    creator:String,
-    summery:String,
-  
-},{ versionKey: false,timestamps: true });
-
-const User = new Schema({
-  username:{type:String},
-  email: {type: String}, 
-  LikePage:{type: [String]},
-  url:{type: String},
-  About:{type:String},
-  isCreator:{type:Boolean}
-},{ versionKey: false,timestamps: true });
+    description: String,
+    blogLinks: [String],
+    courseLink: [String],
+    upVote: [String],
+    comment: [CommentSchema],
+    creator: String,
+}, { versionKey: false, timestamps: true });
 
 
 
 
-const BlogInfo=mongoose.model('devBoss.some', Blog);
-const UserInfo=mongoose.model('devBoss', User);
+
+exports.UserModal = mongoose.model('devBoss.UserModal', UserSchema);
+exports.ProjectModal = mongoose.model('devBoss.ProjectModal', ProjectSchema);
+exports.CommentModal = mongoose.model('devBoss.CommentModal', CommentSchema);
+exports.FindModal = mongoose.model('devBoss.IdeaModal', FindSchema);
+exports.SourceModal = mongoose.model('devBoss.SourceModal', SourceSchema);
 
 
-
-exports.BlogInfo = BlogInfo;
-exports.UserInfo = UserInfo;

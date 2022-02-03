@@ -1,9 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
+const {
+  SignIn,
+  SignUp,
+  Users
+} = require('../controllers/users/index')
+
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.send('user');
-});
+router.get('/',Users );
+
+router.post('/sign_in', SignIn);
+router.post('/sign_up', SignUp);
 
 module.exports = router;

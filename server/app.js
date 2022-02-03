@@ -9,7 +9,7 @@ const db=require('./db/connections/DataBaseConnection');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const projectsRouter = require('./routes/projects');
-const ideasRouter = require('./routes/ideas');
+const findRouter = require('./routes/find');
 const sourceRouter = require('./routes/source');
 
 const app = express();
@@ -23,7 +23,7 @@ db.Connect()
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/projects', projectsRouter);
-app.use('/ideas', ideasRouter);
+app.use('/finds', findRouter);
 app.use('/sources', sourceRouter);
 
 
