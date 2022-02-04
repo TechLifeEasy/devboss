@@ -1,9 +1,9 @@
 const jwt=require("jsonwebtoken");
 // import mongoose from 'mongoose';
 
-const secret = process.env.key;
+const secret = process.env.Secrete;
 
-const auth = async (req, res) => {
+const auth = async (req, res,next) => {
     try {
       // console.log(req.headers)
       const token = req.headers.authorization.split(" ")[1];
@@ -12,12 +12,16 @@ const auth = async (req, res) => {
       
       decodedData = jwt.verify(token, secret);
       
+      console.log(decodedData)
       req.userId = decodedData?._id;
       
       // console.log(decodedData instanceof mongoose.Modal)
-      return ;
+      // return ;
+      console.log('call auth')
+      next()
 
     } catch (error) {
+      console.log(error);
     // Code from the Express middleware
     }
 };

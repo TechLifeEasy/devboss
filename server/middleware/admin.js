@@ -8,7 +8,7 @@ const auth = async (req, res) => {
     try {
       // console.log(req.headers)
       const token = req.headers.adminkey;
-      console.log(secret,token)
+      // console.log(secret,token)
      
       return token===secret;
 

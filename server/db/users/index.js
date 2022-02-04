@@ -59,7 +59,27 @@ const FindUserWithEmailAndPassWord= async(user)=>{
 }
 
 
+const UserDataUpdate= async(userId,userData)=>
+{
+    let {password}=userData;
+
+    if(password)
+    {
+        password=await bcrypt.hash(password,10)
+    }
+    console.log(userId)
+    await UserModal.findOneAndUpdate({_id:userId},{...userData,password});
+
+    const data = await UserModal.findOne({ _id:userId })
+
+    const token = jwt.sign(JSON.stringify(data._doc), process.env.Secrete);
+    
+    return {...data._doc,token:token}
+}
+
+
 exports.AddUserInDataBase = AddUserInDataBase;
 exports.GetUsers = GetUsers;
 exports.GetOneUserInformationById = GetOneUserInformationById;
 exports.FindUserWithEmailAndPassWord = FindUserWithEmailAndPassWord;
+exports.UserDataUpdate = UserDataUpdate;

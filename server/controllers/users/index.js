@@ -2,7 +2,8 @@
 const {
     AddUserInDataBase,
     FindUserWithEmailAndPassWord,
-    GetUsers
+    GetUsers,
+    UserDataUpdate
 
 } = require('../../db/users/index');
 const { isValid } = require('./user');
@@ -49,7 +50,21 @@ const Users =async (req,res) => {
     }
 }
 
+const UsersUpdate =async (req,res) => {
+
+    try {
+
+        console.log('call')
+
+        const data = await UserDataUpdate(req.userId,req.body);
+        return res.status(200).send({ info: 'Users Updated', data });
+    } catch (e) {
+        console.log(e);
+        res.status(500).send(e);
+    }
+}
 
 exports.Users = Users;
 exports.SignIn = SignIn;
 exports.SignUp = SignUp;
+exports.UsersUpdate=UsersUpdate;
