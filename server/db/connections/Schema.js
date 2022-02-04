@@ -24,12 +24,12 @@ var CommentSchema = new Schema({
 const ProjectSchema = new Schema({
     title: String,
     description: String,
+    tech: String,
     demoLink: String,
     upVote: [String],
     comment: [CommentSchema],
     creator: String,
     state:String,
-    tech:[String],
     isIdea:Boolean
 }, { versionKey: false, timestamps: true });
 
@@ -49,8 +49,10 @@ const FindSchema = new Schema({
 const SourceSchema = new Schema({
     title: String,
     description: String,
-    blogLinks: [String],
-    courseLink: [String],
+    courses: [{
+        link:String,
+        about:String,
+    }],
     upVote: [String],
     comment: [CommentSchema],
     creator: String,
