@@ -52,12 +52,13 @@ export default function SourceList() {
             </div>
 
             {
-              showForm && <SourceForm></SourceForm>
+              showForm 
+              
+              ?
+              <SourceForm></SourceForm>
+               :
+               <Sources showPop={showPop}></Sources>
             }
-
-
-
-            <Sources showPop={showPop}></Sources>
 
 
 

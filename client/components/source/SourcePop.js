@@ -32,9 +32,11 @@ const data = {
 export default function SourcePop({ showPop }) {
   return (
 
-    <div className='absolute w-full h-full z-50 top-0
+    <div className='w-full h-full z-50 top-0
     py-10  left-0 flex flex-col pl-7 bg-white gap-6
      overflow-auto
+
+     lg:w-11/12 lg:m-auto lg:left-1/2
     '>
 
 

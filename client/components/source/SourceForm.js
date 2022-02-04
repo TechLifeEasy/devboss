@@ -102,7 +102,7 @@ export default function SourceForm() {
 
       <div className="col-span-2 text-right mt-3">
         <button
-          className=" w-full py-3 text-white rounded-lg bg-red-500 hover:bg-red-600 px-2"
+          className="mt-5 m-auto w-full py-3 text-white rounded-lg bg-red-500 hover:bg-red-600 px-2"
 
           onClick={addSource}
         >Add</button>
@@ -146,7 +146,7 @@ function Courses({data,setData}) {
 
 
 
-            <div className="col-span-2 lg:col-span-1">
+            <div className="col-span-2 lg:col-span-2">
               <div className='w-full flex justify-between my-3'>
 
                 <h4>{`Course #${index + 1}`}</h4>
@@ -157,7 +157,9 @@ function Courses({data,setData}) {
                 > x</button>
               </div>
               <div className=" relative ">
-                <input type="text" id="contact-form-name" className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-sky-900 focus:border-transparent" placeholder="Course Link"
+                <input type="text" id="contact-form-name" className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-sky-900 focus:border-transparent
+                md:w-full
+                " placeholder="Course Link"
                   value={data.link}
                   onChange={(e)=>updateCourseLink(index,e)}
                 />
