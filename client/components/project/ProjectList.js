@@ -94,14 +94,14 @@ tech:"ML,Web",
           </div>
           <p className='font-bold  text-center w-full mr-auto text-white'>{ele.title}</p>
           <div className='flex flex-col items-center'>
-          {(show===true) && (ind==index) ?<>
+          <p className='shadow-sky-900 font-bold text-center shadow-lg m-2 bg-sky-200  rounded-sm mt-2 p-2'>{ele.description}</p>
+          {/* {(show===true) && (ind==index) ?<>
             <IoIosArrowDropup onClick={()=>{setShow(!show);setIndex(-1)}} size={25} color='white' className='block mt-2 '/>
-            <p className='shadow-sky-500 font-bold text-center shadow-lg bg-sky-200  rounded-sm mt-2 p-2'>{ele.description}</p>
-          </>:
+          {/* </>:
           <>
               <IoIosArrowDropdown onClick={()=>{setShow(!show); setIndex(ind)}} size={25} color='white' className='block mt-2 '/>
           </>}
-            
+             */}
             <a   href={ele.demoLink} target="_blank"> <FiExternalLink color='white' className='mt-3'></FiExternalLink></a>
           </div>
           <div className='flex flex-row flex-wrap items-center text-center justify-center gap-1 '>
