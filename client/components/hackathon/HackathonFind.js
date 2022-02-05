@@ -2,6 +2,7 @@ import {React,useState} from 'react';
 import Search from '../helpers/Search'
 import {HiExternalLink,HiFilter} from 'react-icons/hi';
 import {AiFillLinkedin} from 'react-icons/ai';
+import {GrPowerReset} from 'react-icons/gr';
 
 export default function HackathonFind(){
     const data=[{
@@ -62,10 +63,11 @@ const filterData=(dt)=>{
   return(
 
   <div>
-    {/* <div className='flex flex-row  gap-20 justify-end  '> */}
-  <Search alert={filterData}></Search>
+    <div className='flex flex-row justify-center gap-2   '>
+  <Search  alert={filterData}></Search>
+  <button onClick={()=>{setFdata(data)}}><GrPowerReset size={20} className='my-auto'/></button>
   {/* <button onClick={()=>{setShow(true)}}><HiFilter className='my-auto mr-10 ' size={30} /></button> */}
-  {/* </div> */}
+  </div>
   <div className='flex flex-row  gap-3 mt-3 justify-center items-center flex-wrap '>
     {fdata.map((ele,ind)=>{
       return(
