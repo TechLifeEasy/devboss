@@ -1,6 +1,6 @@
 import React from 'react';
 import { BsBookmarkCheckFill } from 'react-icons/bs'
-import {BiUpvote} from 'react-icons/bi';
+import { BiUpvote } from 'react-icons/bi';
 
 const data = {
   title: 'Zeel React js Path ',
@@ -24,7 +24,7 @@ const data = {
 
     },
   ],
-  upVote:['zeel','zeel123','zeel3222']
+  upVote: ['zeel', 'zeel123', 'zeel3222']
 }
 
 
@@ -69,14 +69,7 @@ export default function SourcePop({ showPop }) {
 
               return (
                 <div className=" cursor-pointer flex flex-col justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl"
-                  onClick={
-
-
-                    () => {
-                      showPop(index);
-                    }
-
-                  }>
+                >
 
                   <div className="p-5">
                     <div className=' flex'>
@@ -120,13 +113,13 @@ export default function SourcePop({ showPop }) {
 
         Up Votes :
 
-      <div className='flex cursor-pointer  hover:bg-green-400 rounded-lg p-2 hover:text-white w-fit  items-center text-2xl'>
-        <BiUpvote></BiUpvote>
+        <div className='flex cursor-pointer  hover:bg-green-400 rounded-lg p-2 hover:text-white w-fit  items-center text-2xl'>
+          <BiUpvote></BiUpvote>
 
-        <div>
-          {data.upVote.length}
+          <div>
+            {data.upVote.length}
+          </div>
         </div>
-      </div>
       </div>
 
       <button
