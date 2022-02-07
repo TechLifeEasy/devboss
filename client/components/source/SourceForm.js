@@ -102,7 +102,7 @@ export default function SourceForm() {
 
       <div className="col-span-2 text-right mt-3">
         <button
-          className="mt-5 m-auto w-full py-3 text-white rounded-lg bg-red-500 hover:bg-red-600 px-2"
+          className="mt-5 m-auto w-full py-3 text-white rounded-lg bg-sky-800 hover:bg-sky-600 px-2"
 
           onClick={addSource}
         >Add</button>
@@ -151,7 +151,7 @@ function Courses({data,setData}) {
 
                 <h4>{`Course #${index + 1}`}</h4>
                 <button
-                  className=" text-white rounded-lg bg-red-500 hover:bg-red-600 px-2"
+                  className=" text-white rounded-lg bg-sky-800 hover:bg-sky-600 px-2"
 
                   onClick={()=>removeCourse(index)}
                 > x</button>
@@ -181,7 +181,7 @@ function Courses({data,setData}) {
       }
 
       <button
-        className=" w-full py-3 text-white rounded-lg bg-red-500 hover:bg-red-600 px-2"
+        className=" w-full py-3 text-white rounded-lg bg-sky-800 hover:bg-sky-600 px-2"
 
         onClick={() => setData([...data, { link: '', about: '' }])}
       >Course +</button>
