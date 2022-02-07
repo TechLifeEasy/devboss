@@ -6,7 +6,7 @@ export default function fun({text}) {
 
       {
 
-          text.split('/n').map((d)=><p>{d}</p>)
+          text?.split('/n').map((d)=><p>{d}</p>)
       }
 
       </>

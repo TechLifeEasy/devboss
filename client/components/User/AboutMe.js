@@ -1,6 +1,7 @@
 import React from "react";
+import Pop from "../helpers/fun";
 
-const AboutMe = () => {
+const AboutMe = ({data}) => {
   return (
     <div className="mx-20 my-10	">
       <div class="shadow-lg rounded-2xl w-full p-4 bg-white dark:bg-gray-800">
@@ -9,27 +10,25 @@ const AboutMe = () => {
           <div class="h-28 w-full flex flex-col justify-between">
             <div>
               <p class="text-gray-800 dark:text-white text-xl font-medium">
-                Full Name
+                {data.name}
               </p>
-              <p class="text-gray-400 text-xs">FullStack dev</p>
+              {/* <p class="text-gray-400 text-xs">FullStack dev</p> */}
             </div>
             <div class="rounded-lg bg-blue-100 dark:bg-white p-2 w-full h-full">
               <div class="flex items-center justify-between text-xs text-gray-400 dark:text-black">
                 <p class="text-gray-400 text-xs">
-                  About Me Lorem ipsum dolor sit amet consectetur adipisicing
-                  elit. Doloribus deserunt ullam magni cumque soluta tenetur et
-                  corporis illo! Minima, incidunt.
+                  <Pop text={data.bio}></Pop>
                 </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <button
+      {/* <button
         type="button"
         class="w-1/2 px-4 py-2 my-5 text-base justify-center align-center border rounded-lg text-white bg-indigo-500 hover:bg-indigo-700 ">
         Edit
-      </button>
+      </button> */}
     </div>
   );
 };

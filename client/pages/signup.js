@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { DiGithubBadge } from "react-icons/di";
 import { AiFillLinkedin } from "react-icons/ai";
 import { AiFillTwitterCircle } from "react-icons/ai";
@@ -21,10 +21,17 @@ const SignUp = () => {
     "twitter":"",
     "linkedin":"",
     "website":"",
-    "resume":""
+    "resume":"",
+    "discord":""
   });
   const [isLoading, setIsLoadding] = useState(false);
   const [isPop, setIsPop] = useState('');
+
+  useEffect(()=>{
+    if(localStorage.getItem('User')){
+      window.location.href='/';
+    }
+  })
 
   // const [isLoading, setIsLoadding] = useState(false);
 

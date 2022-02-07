@@ -29,6 +29,11 @@ const GetOneUserInformationById = async (id) => {
     return data;
 }
 
+const GetUsersByName = async (name) => {
+    const data = await UserModal.findOne({ name: name });
+    return {...data._doc,password:""};
+}
+
 const GetUsers = async (id) => {
     const data = await UserModal.find({});
     return data;
@@ -83,3 +88,4 @@ exports.GetUsers = GetUsers;
 exports.GetOneUserInformationById = GetOneUserInformationById;
 exports.FindUserWithEmailAndPassWord = FindUserWithEmailAndPassWord;
 exports.UserDataUpdate = UserDataUpdate;
+exports.GetUsersByName = GetUsersByName;

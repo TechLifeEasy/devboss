@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 // // import image from "../../assets/login.svg";
 // import { SingIn } from "../../Api/user";
 // import { Link } from "react-router-dom";
@@ -44,6 +44,11 @@ const SignUp = () => {
 
 
   };
+  useEffect(()=>{
+    if(localStorage.getItem('User')){
+      window.location.href='/';
+    }
+  })
 
   return (
     <section>

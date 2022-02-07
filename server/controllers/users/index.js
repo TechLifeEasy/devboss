@@ -3,6 +3,7 @@ const {
     AddUserInDataBase,
     FindUserWithEmailAndPassWord,
     GetUsers,
+    GetUsersByName,
     UserDataUpdate
 
 } = require('../../db/users/index');
@@ -49,6 +50,18 @@ const Users =async (req,res) => {
         res.status(500).send(e);
     }
 }
+const UserByName =async (req,res) => {
+
+    try {
+
+        console.log(req.params.name)
+        const data = await GetUsersByName(req.params.name);
+        return res.status(200).send({ info: 'Users', data });
+    } catch (e) {
+        console.log(e);
+        res.status(500).send(e);
+    }
+}
 
 const UsersUpdate =async (req,res) => {
 
@@ -68,3 +81,4 @@ exports.Users = Users;
 exports.SignIn = SignIn;
 exports.SignUp = SignUp;
 exports.UsersUpdate=UsersUpdate;
+exports.UserByName=UserByName;

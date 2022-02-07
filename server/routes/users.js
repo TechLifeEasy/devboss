@@ -8,7 +8,8 @@ const {
   SignIn,
   SignUp,
   Users,
-  UsersUpdate
+  UsersUpdate,
+  UserByName
 } = require('../controllers/users/index')
 
 /* GET home page. */
@@ -16,5 +17,8 @@ router.get('/',Users );
 router.post('/sign_in', SignIn);
 router.post('/sign_up', SignUp);
 router.put('/update', auth,UsersUpdate);
+router.get('/p/:name', UserByName);
+
+
 
 module.exports = router;
