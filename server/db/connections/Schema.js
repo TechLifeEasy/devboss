@@ -13,6 +13,8 @@ const UserSchema = new Schema({
     twitter: String,
     linkedin: String,
     discord: String,
+    resume: String,
+    website: String,
 }, { versionKey: false, timestamps: true });
 
 var CommentSchema = new Schema({
