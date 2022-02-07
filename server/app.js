@@ -1,6 +1,7 @@
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
+
 require("dotenv").config()
 var cors = require('cors')
 const cookieParser = require("cookie-parser");
@@ -20,6 +21,7 @@ if (process.env.NODE_ENV === 'production') {
 
 
 const app = express();
+var server = require('http').createServer(app);
 app.use(cors())
 app.use(logger("dev"));
 app.use(express.json());
@@ -41,9 +43,9 @@ app.use(function (req, res, next) {
 
 if (process.env.NODE_ENV === 'production') {
   const { PORT = 3000, LOCAL_ADDRESS = '0.0.0.0' } = process.env
-  app.listen(PORT, LOCAL_ADDRESS, () => {
-    const address = app.address();
-    console.log('app listening at', address);
+  server.listen(PORT, LOCAL_ADDRESS, () => {
+    const address = server.address();
+    console.log('server listening at', address);
   });
 } else {
 
