@@ -38,12 +38,11 @@ const ProjectSchema = new Schema({
 
 
 const FindSchema = new Schema({
-    title: String,
-    description: String,
-    link: String,
+    name: String,
     creator: String,
-    state:String,
-    type:String,
+    tech: String,
+    link: String,
+    contact:String
 }, { versionKey: false, timestamps: true });
 
 
