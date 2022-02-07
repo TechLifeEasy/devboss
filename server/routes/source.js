@@ -1,18 +1,21 @@
 const express = require('express');
 const router = express.Router();
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.send('source');
-});
+const {auth}=require('../middleware/auth')
 
 
-// router.get('/',Sources );
-// router.post('/add',AddSource);
-// router.put('/update',UpdateSource);
+const {Sources,AddSource,UpdateDataSource,DeleteSource} =require('../controllers/source/index');
 
+// /* GET home page. */
+// router.get('/', function(req, res, next) {
+//   res.send('source');
+// });
+
+
+router.get('/',Sources );
+router.post('/add',auth,AddSource);
+router.put('/update',auth,UpdateDataSource);
 // //op
-// router.delete('/update_source',DeleteSource);
+router.delete('/delete',auth,DeleteSource);
 
 
 

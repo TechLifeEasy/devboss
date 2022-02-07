@@ -8,7 +8,7 @@ import { CgWebsite } from "react-icons/cg";
 const bio = () => {
   return (
     <div>
-      <section class="h-screen bg-gray-100 bg-opacity-50 mt-10 mb-20 ">
+      <section class=" bg-gray-100 bg-opacity-50 mt-10 mb-20 ">
         <form class="container max-w-2xl mx-auto shadow-md md:w-3/4">
           <div class="p-4 bg-gray-100 border-t-2 border-indigo-400 rounded-lg bg-opacity-5">
             <div class="max-w-sm mx-auto md:w-full md:mx-0">

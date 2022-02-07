@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 
-const web=process.env.REACT_APP_WebSite;
+const web='http://localhost:5000';
 const token=JSON.parse(localStorage.getItem('User')).token;
 const API = axios.create({
     baseURL:web,

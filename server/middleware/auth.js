@@ -14,6 +14,7 @@ const auth = async (req, res,next) => {
       
       console.log(decodedData)
       req.userId = decodedData?._id;
+      req.userName=decodedData?.name;
       
       // console.log(decodedData instanceof mongoose.Modal)
       // return ;
