@@ -115,22 +115,8 @@ const Navbar = () => {
                       aria-label="Company"
                       title="Company"
                       className="inline-flex items-center">
-                      <svg
-                        className="w-8 text-purple-400"
-                        viewBox="0 0 24 24"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeMiterlimit="10"
-                        stroke="currentColor"
-                        fill="none">
-                        <rect x="3" y="1" width="7" height="12" />
-                        <rect x="3" y="17" width="7" height="6" />
-                        <rect x="14" y="1" width="7" height="6" />
-                        <rect x="14" y="11" width="7" height="12" />
-                      </svg>
-                      <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                        Company
+                      <span className="ml-2 	 font-black text-3xl tracking-wide text-gray-800 uppercase">
+                        Projectopia
                       </span>
                     </a>
                   </div>
@@ -154,37 +140,36 @@ const Navbar = () => {
                     <li>
                       <a
                         href="/"
-                        aria-label="Our product"
-                        title="Our product"
-                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400">
-                        Product
+                        aria-label="Find Project Idea"
+                        title="Find Project Idea"
+                        className="font-medium tracking-wide px-5 text-gray-700 transition-colors duration-200 hover:text-purple-400">
+                        Find Project Idea
                       </a>
                     </li>
                     <li>
                       <a
                         href="/"
-                        aria-label="Our product"
-                        title="Our product"
-                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400">
-                        Features
+                        aria-label="Find Resources"
+                        title="Find Resources"
+                        className="font-medium tracking-wide px-5 text-gray-700 transition-colors duration-200 hover:text-purple-400">
+                        Find Resources
                       </a>
                     </li>
                     <li>
                       <a
                         href="/"
-                        aria-label="Product pricing"
-                        title="Product pricing"
-                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400">
-                        Pricing
+                        aria-label="Find Partners"
+                        title="Find Partners"
+                        className="font-medium tracking-wide px-5 text-gray-700 transition-colors duration-200 hover:text-purple-400">
+                        Find Partners
                       </a>
                     </li>
-
                     <li>
                       <a
                         href="/"
                         aria-label="About us"
                         title="About us"
-                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400">
+                        className="font-medium tracking-wide px-5 text-gray-700 transition-colors duration-200 hover:text-purple-400">
                         About us
                       </a>
                     </li>
@@ -193,7 +178,7 @@ const Navbar = () => {
                         href="/"
                         aria-label="Sign in"
                         title="Sign in"
-                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-purple-400">
+                        className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none">
                         Sign in
                       </a>
                     </li>
@@ -205,6 +190,15 @@ const Navbar = () => {
                         aria-label="Sign up"
                         title="Sign up">
                         Sign up
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/"
+                        className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
+                        aria-label="Sign up"
+                        title="Sign up">
+                        <CgProfile className="w-6 h-6" />
                       </a>
                     </li>
                   </ul>
