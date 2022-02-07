@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 
-const web = 'http://localhost:5000';
+const web = process.env.WebLink ||process.env.NEXT_PUBLIC_WebLink ;
 
 const API = axios.create({ baseURL: web });
 
