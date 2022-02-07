@@ -56,7 +56,7 @@ const SourceSchema = new Schema({
     upVote: [String],
     comment: [CommentSchema],
     creator: String,
-    tech:[String]
+    tech:String
 }, { versionKey: false, timestamps: true });
 
 
