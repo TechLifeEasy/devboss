@@ -27,10 +27,10 @@ const ProjectSchema = new Schema({
     tech: String,
     demoLink: String,
     upVote: [String],
-    comment: [CommentSchema],
+    // comment: [CommentSchema],
     creator: String,
     state:String,
-    isIdea:Boolean
+    // isIdea:Boolean
 }, { versionKey: false, timestamps: true });
 
 
