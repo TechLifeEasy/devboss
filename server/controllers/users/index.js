@@ -6,7 +6,7 @@ const {
     UserDataUpdate
 
 } = require('../../db/users/index');
-const { isValid } = require('./user');
+const { isValid,isValid1 } = require('./user');
 
 
 const SignUp = async (req, res) => {
@@ -29,7 +29,7 @@ const SignIn = async (req, res) => {
     try {
         const user = req.body;
         console.log(user)
-        if (!isValid(user)) return res.status(404).send('data wrong');
+        if (!isValid1(user)) return res.status(404).send('data wrong');
         const data = await FindUserWithEmailAndPassWord(user);
         return res.status(200).send({ info: 'User Add', data });
     } catch (e) {

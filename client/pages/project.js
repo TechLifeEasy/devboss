@@ -1,11 +1,12 @@
 import {React,useState} from 'react';
 import ProjectList from '../components/project/ProjectList';
 import ProjectForm from '../components/project/ProjectForm';
+import { API } from '../Api/Back'
 
 
-
-export default function Projects() {
+export default function Projects({data}) {
     const[show,setShow]=useState(false);
+    console.log(data)
     return (
         <div>
             <div className='flex flex-row justify-end mr-5'>
@@ -18,10 +19,30 @@ export default function Projects() {
             </>
             :
             <>
-            <ProjectList/>
+            <ProjectList data={data}/>
             </>
             }
         </div>
 
     );
+}
+
+
+
+export async function getServerSideProps(context) {
+
+    let data=[]
+    try{
+
+        data = await API.get('/projects');
+        
+     
+    }catch(e){
+        console.log(e.message);
+    }
+
+
+    return {
+        props: { data: data.data||null }, // will be passed to the page component as props
+    }
 }

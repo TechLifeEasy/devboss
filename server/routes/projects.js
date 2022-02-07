@@ -2,13 +2,14 @@ const express = require('express');
 const router = express.Router();
 const {Projects,AddProject,DeleteProject}=require('../db/projects/index.js');
 /* GET home page. */
+const {auth}=require('../middleware/auth')
 
 
 console.log(Projects);
 router.get('/',Projects);
-router.post('/add',AddProject);
+router.post('/add',auth,AddProject);
 // router.put('/update',UpdateProject);
-router.delete('/delete',DeleteProject);
+router.delete('/delete',auth,DeleteProject);
 
 // //op
 

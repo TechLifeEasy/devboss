@@ -1,35 +1,40 @@
 import React from 'react';
 import { BsBookmarkCheckFill } from 'react-icons/bs'
 import { BiUpvote } from 'react-icons/bi';
+import {UpdateSource} from '../../Api/Api'
+// import Source from '../../pages/source';
 
-const data = {
-  title: 'Zeel React js Path ',
-  tech: 'React js',
-  description: `React components implement a render() method that takes input data and returns what to display. This example uses an XML-like syntax called JSX. Input data that is passed into the component can be accessed by render() via this.props.
-  /n
-  JSX is optional and not required to use React. Try the Babel REPL to see the raw JavaScript code produced by the JSX compilation step.`,
-  courses: [
-    {
-      link: 'https://www.youtube.com/watch?v=bMknfKXIFA8',
-      about: 'JSX is optional and not required to use React. Try the Babel REPL to see the raw JavaScript code produced by the JSX compilation step.'
-    },
-    {
-      link: 'https://www.youtube.com/watch?v=bMknfKXIFA8',
-      about: 'JSX is optional and not required to use React. Try the Babel REPL to see the raw JavaScript code produced by the JSX compilation step.'
+// const data = {
+//   title: 'Zeel React js Path ',
+//   tech: 'React js',
+//   description: `React components implement a render() method that takes input data and returns what to display. This example uses an XML-like syntax called JSX. Input data that is passed into the component can be accessed by render() via this.props.
+//   /n
+//   JSX is optional and not required to use React. Try the Babel REPL to see the raw JavaScript code produced by the JSX compilation step.`,
+//   courses: [
+//     {
+//       link: 'https://www.youtube.com/watch?v=bMknfKXIFA8',
+//       about: 'JSX is optional and not required to use React. Try the Babel REPL to see the raw JavaScript code produced by the JSX compilation step.'
+//     },
+//     {
+//       link: 'https://www.youtube.com/watch?v=bMknfKXIFA8',
+//       about: 'JSX is optional and not required to use React. Try the Babel REPL to see the raw JavaScript code produced by the JSX compilation step.'
 
-    },
-    {
-      link: 'https://www.youtube.com/watch?v=bMknfKXIFA8',
-      about: 'JSX is optional and not required to use React. Try the Babel REPL to see the raw JavaScript code produced by the JSX compilation step.'
+//     },
+//     {
+//       link: 'https://www.youtube.com/watch?v=bMknfKXIFA8',
+//       about: 'JSX is optional and not required to use React. Try the Babel REPL to see the raw JavaScript code produced by the JSX compilation step.'
 
-    },
-  ],
-  upVote: ['zeel', 'zeel123', 'zeel3222']
-}
+//     },
+//   ],
+//   upVote: ['zeel', 'zeel123', 'zeel3222']
+// }
 
 
 
-export default function SourcePop({ showPop }) {
+export default function SourcePop({ data }) {
+
+  console.log(data)
+
   return (
 
     <div className='w-full h-full z-50 top-0
@@ -113,20 +118,32 @@ export default function SourcePop({ showPop }) {
 
         Up Votes :
 
-        <div className='flex cursor-pointer  hover:bg-green-400 rounded-lg p-2 hover:text-white w-fit  items-center text-2xl'>
+        <div
+        onClick={ ()=>{
+
+          UpdateSource({title:data.title,type:"vote"})
+          .then(()=>{
+            window.location.reload();
+          })
+
+         }}
+        className='flex cursor-pointer  hover:bg-green-400 rounded-lg p-2 hover:text-white w-fit  items-center text-2xl'>
           <BiUpvote></BiUpvote>
 
-          <div>
+          <div  
+          
+           
+          >
             {data.upVote.length}
           </div>
         </div>
       </div>
 
-      <button
+      {/* <button
         className=" absolute text-white rounded-lg bg-sky-800 hover:bg-sky-600 px-5 right-10"
 
         onClick={() => showPop(-1)}
-      > x</button>
+      > x</button> */}
 
 
     </div>

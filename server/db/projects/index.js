@@ -19,7 +19,7 @@ const Projects=async(req,res)=>{
 const AddProject=async(req,res)=>
 {
     try{
-        const data=await req.body;
+        let data={...req.body,creator:req.userName,state:'on'};
         console.log(data);
         const instance=await new ProjectModal(data);
         const resp=await instance.save();

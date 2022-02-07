@@ -3,38 +3,28 @@ import Search from '../helpers/Search'
 import SourceForm from './SourceForm';
 import { AiOutlineUser } from 'react-icons/ai';
 import SourcePop from './SourcePop';
+import ShowPara from '../helpers/fun'
+import { BiUpvote } from 'react-icons/bi';
 
-
-export default function SourceList() {
+export default function SourceList({data}) {
 
   const [showForm, setShowForm] = useState(false);
 
-  const [showPopPage, setShowPopPage] = useState({ show: false, index: -1 });
+  // const [showPopPage, setShowPopPage] = useState({ show: false, index: -1 });
 
-  function showPop(index) {
+  // function showPop(index) {
 
-    console.log(index)
+  //   console.log(index)
 
-    setShowPopPage({ show: !showPopPage.show, index })
+  //   setShowPopPage({ show: !showPopPage.show, index })
 
-  }
+  // }
 
   return (
     <>
 
 
 
-
-      {
-
-        showPopPage.show
-
-          ?
-          <SourcePop
-            showPop={showPop}
-
-          ></SourcePop>
-          :
 
 
           <div>
@@ -57,21 +47,21 @@ export default function SourceList() {
               ?
               <SourceForm></SourceForm>
                :
-               <Sources showPop={showPop}></Sources>
+               <Sources data={data}></Sources>
             }
 
 
 
           </div>
-      }
+      
     </>
 
   );
 }
 
-const demo = [1, 2, 3, 4, 4, 5, 6, 7]
+// const demo = [1, 2, 3, 4, 4, 5, 6, 7]
 
-function Sources({ showPop }) {
+function Sources({ data}) {
   return (
 
     <div>
@@ -79,8 +69,8 @@ function Sources({ showPop }) {
 
       <div className={`relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4 my-5 `}>
         {
-          demo.map((data, index) => {
-            return <Source showPop={showPop} index={index}
+          data.map((data, index) => {
+            return <Source  key={data._id} index={index} {...data}
             ></Source>
           })
         }
@@ -92,7 +82,7 @@ function Sources({ showPop }) {
 }
 
 
-function Source({ showPop, index }) {
+function Source({ creator,description,title,upVote }) {
 
   return (
     <div className=" cursor-pointer flex flex-col justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl"
@@ -100,7 +90,7 @@ function Source({ showPop, index }) {
 
 
         () => {
-          showPop(index);
+          window.location.href='/source_one/'+title;
         }
 
       }>
@@ -113,13 +103,21 @@ function Source({ showPop, index }) {
 
           </div>
           <div className=' pt-2 pl-2'>
-            zeel prajapati
+            {creator}
           </div>
         </div>
-        <p className="mb-2 font-bold">Football Sports</p>
+        <p className="mb-2 font-bold"> {title}</p>
         <p className="text-sm leading-5 text-gray-900">
-          Sed ut perspiciatis unde omnis iste. Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit.
+        <ShowPara text=  {description.substring(0,100)+"..."}></ShowPara>
+        </p>
+        <p className="flex items-center text-gray-900 ">
+        
+       <div>
+
+
+        Up : {upVote.length}
+       </div>
+      
         </p>
       </div>
       <div className="w-full h-1 ml-auto duration-300 origin-left transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100" />
