@@ -27,7 +27,17 @@ const SingIn = (data) => API.post('/users/sign_in', data);
 const AddSource = (data) => APIWithToken.post('/sources/add', data);
 const UpdateSource = (data) => APIWithToken.put('/sources/update', data);
 
-export { SingUp,SingIn ,AddSource,UpdateSource};
+const AddProject = (data) => APIWithToken.post('/projects/add', data);
+const UpdateProject = (data) => APIWithToken.put('/projects/update', data);
+
+
+const AddFind = (data) => APIWithToken.post('/finds/add', data);
+// const UpdateProject = (data) => APIWithToken.put('/projects/update', data);
+
+
+
+export { SingUp,SingIn ,AddSource,UpdateSource,AddProject,UpdateProject,AddFind};
+
 
 
 

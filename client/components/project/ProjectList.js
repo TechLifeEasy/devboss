@@ -3,7 +3,9 @@ import Search from '../helpers/Search'
 import { FiExternalLink } from 'react-icons/fi'
 import { IoIosArrowDropdown, IoIosArrowDropup } from 'react-icons/io'
 import { MdOutlineThumbUpOffAlt, MdOutlineThumbDown } from 'react-icons/md';
-import {AiOutlineUser} from 'react-icons/ai'
+import { AiOutlineUser } from 'react-icons/ai'
+import { UpdateProject } from '../../Api/Api';
+
 export default function ProjectList({ data }) {
   const [show, setShow] = useState(false);
   const [index, setIndex] = useState(-1);
@@ -120,7 +122,20 @@ export default function ProjectList({ data }) {
                 })}
               </div>
               {/* <h1 className='text-white  text-right'>{ele.tech}</h1> */}
-              <div className='flex flex-row items-center '>
+              <div className='flex flex-row items-center '
+                onClick={() => {
+
+                  UpdateProject({ title: ele.title, type: "vote" })
+                    .then(() => {
+                      window.location.reload();
+                    }).catch((e)=>{{
+                      console.log(e);
+                    }})
+
+                }}
+
+
+              >
                 <button className=' p-1'><MdOutlineThumbUpOffAlt color='white' /></button>
                 <p className='p-2 mt-0  text-white'>{ele.upVote.length}</p>
               </div>

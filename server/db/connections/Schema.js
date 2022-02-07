@@ -67,7 +67,7 @@ const SourceSchema = new Schema({
 exports.UserModal = mongoose.model('devBoss.UserModal', UserSchema);
 exports.ProjectModal = mongoose.model('devBoss.ProjectModal', ProjectSchema);
 exports.CommentModal = mongoose.model('devBoss.CommentModal', CommentSchema);
-exports.FindModal = mongoose.model('devBoss.IdeaModal', FindSchema);
+exports.FindModal = mongoose.model('devBoss.FindModal', FindSchema);
 exports.SourceModal = mongoose.model('devBoss.SourceModal', SourceSchema);
 
 

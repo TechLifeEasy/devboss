@@ -1,9 +1,13 @@
 import { React, useState } from "react";
 import HackathonFind from "../components/hackathon/HackathonFind";
 import HackathonShow from "../components/hackathon/HackathonShow";
+import { API } from '../Api/Back'
 
-export default function Hackathon() {
+
+
+export default function Hackathon({data}) {
     const [show, setShow] = useState(false);
+    console.log(data)
     return (
         <div>
             <div className='flex flex-row justify-end mr-5'>
@@ -16,10 +20,30 @@ export default function Hackathon() {
                 </>
                 :
                 <>
-                    <HackathonFind />
+                    <HackathonFind data={data} />
                 </>
             }
         </div>
 
     );
+}
+
+
+export async function getServerSideProps(context) {
+
+    let data=[]
+    try{
+
+        data = await API.get('/finds');
+        
+        console.log(data.data)
+     
+    }catch(e){
+        console.log(e.message);
+    }
+
+
+    return {
+        props: { data: data.data||null }, // will be passed to the page component as props
+    }
 }

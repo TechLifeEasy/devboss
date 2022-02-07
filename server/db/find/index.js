@@ -2,7 +2,7 @@ const {FindModal} =require('../connections/Schema');
 
 const Finds=async(req,res)=>{
     try {
-        const data=await FindModal.find();
+        const data=await FindModal.find({});
         if(data)
         res.status(200).send(data);
         else
@@ -17,7 +17,7 @@ const AddFind=async(req,res)=>
     try{
         const data=await req.body;
         console.log(data);
-        const instance=await new FindModal(data);
+        const instance=await new FindModal({...data,creator:req.userName});
         const resp=await instance.save();
         if (resp) {
             res.status(200).send("Added Hackathon")
