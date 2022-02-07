@@ -33,5 +33,25 @@ const AddProject=async(req,res)=>
             res.status(404).send(e.message);
     }
 }
+
+const DeleteProject=async(req,res)=>
+{
+    try{
+        const data=await req.body;
+        console.log(data);
+        
+        let resp=await ProjectModal.deleteOne({title:data.title});    
+        if(resp){
+            res.status(200).send("Project Successfully Deleted");
+        }else{
+            res.status(404).send("Some Error occurred while deleting");
+        }
+    }
+    catch(e){
+            res.status(404).send(e.message);
+    }
+}
+
 exports.Projects=Projects;
 exports.AddProject=AddProject;
+exports.DeleteProject=DeleteProject;
