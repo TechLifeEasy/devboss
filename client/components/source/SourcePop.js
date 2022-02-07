@@ -123,7 +123,7 @@ export default function SourcePop({ showPop }) {
       </div>
 
       <button
-        className=" absolute text-white rounded-lg bg-red-500 hover:bg-red-600 px-5 right-10"
+        className=" absolute text-white rounded-lg bg-sky-800 hover:bg-sky-600 px-5 right-10"
 
         onClick={() => showPop(-1)}
       > x</button>

@@ -1,14 +1,12 @@
 const express = require('express');
 const router = express.Router();
-
+const {Projects,AddProject}=require('../db/projects/index.js');
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.send('project');
-});
 
 
-// router.get('/',Projects);
-// router.post('/add',AddProject);
+console.log(Projects);
+router.get('/',Projects);
+router.post('/add',AddProject);
 // router.put('/update',UpdateProject);
 
 

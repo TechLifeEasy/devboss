@@ -1,10 +1,8 @@
-import {React,useState} from 'react';
-import ProjectList from '../components/project/ProjectList';
-import ProjectForm from '../components/project/ProjectForm';
+import {React,useState} from "react";
+import HackathonFind from "../components/hackathon/HackathonFind";
+import HackathonShow from "../components/hackathon/HackathonShow";
 
-
-
-export default function Projects() {
+export default function Hackathon() {
     const[show,setShow]=useState(false);
     return (
         <div>
@@ -14,11 +12,11 @@ export default function Projects() {
             </div>
             {show===true?
             <>
-            <ProjectForm/>
+            <HackathonShow/>
             </>
             :
             <>
-            <ProjectList/>
+            <HackathonFind/>
             </>
             }
         </div>
