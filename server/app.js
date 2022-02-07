@@ -14,8 +14,8 @@ const findRouter = require("./routes/find");
 const sourceRouter = require("./routes/source");
 
 
-if(process.env.NODE_ENV==='production'){
-  console.log = function() {}
+if (process.env.NODE_ENV === 'production') {
+  console.log = function () { }
 }
 
 
@@ -38,6 +38,19 @@ app.use(function (req, res, next) {
   next(createError(404));
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+
+if (process.env.NODE_ENV === 'production') {
+  const { PORT = 3000, LOCAL_ADDRESS = '0.0.0.0' } = process.env
+  app.listen(PORT, LOCAL_ADDRESS, () => {
+    const address = app.address();
+    console.log('app listening at', address);
+  });
+} else {
+
+  const port = process.env.PROT || 3000;
+
+  app.listen(port, () => {
+    console.log(`Server app listening at http://localhost:${port}`)
+  })
+}
+
