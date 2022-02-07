@@ -1,7 +1,7 @@
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
-require("dotenv");
+require("dotenv").config()
 var cors = require('cors')
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
@@ -12,6 +12,12 @@ const usersRouter = require("./routes/users");
 const projectsRouter = require("./routes/projects");
 const findRouter = require("./routes/find");
 const sourceRouter = require("./routes/source");
+
+
+if(process.env.NODE_ENV==='production'){
+  console.log = function() {}
+}
+
 
 const app = express();
 app.use(cors())
