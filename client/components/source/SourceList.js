@@ -43,7 +43,7 @@ export default function SourceList() {
 
               <Search></Search>
               <button
-                className="h-10 text-white rounded-lg bg-red-500 hover:bg-red-600 px-2"
+                className="h-10 text-white rounded-lg bg-sky-800 hover:bg-sky-600 px-2"
                 onClick={() => {
                   setShowForm(!showForm);
                 }}
