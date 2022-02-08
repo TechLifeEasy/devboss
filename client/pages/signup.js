@@ -50,7 +50,7 @@ const SignUp = () => {
 
     SingUp(data)
       .then((data) => {
-        localStorage.setItem('User',data);
+        localStorage.setItem('User',JSON.stringify(data.data));
         window.location.href='/'
       }).catch((e)=>{
         console.log(e);
@@ -73,10 +73,10 @@ const SignUp = () => {
         isPop.length!=0 && <Pop text={isPop} remove={setIsPop}></Pop>
       }
 
-      <div class="flex items-center justify-center overflow-hidden">
+      <div className="flex items-center justify-center overflow-hidden">
 
         <div
-          class="
+          className="
             flex flex-col
             justify-center
             flex-1
@@ -87,25 +87,25 @@ const SignUp = () => {
             xl:px-24
           "
         >
-          <div class="w-full max-w-xl mx-auto lg:w-96 gap-3">
+          <div className="w-full max-w-xl mx-auto lg:w-96 gap-3">
             <div>
-              <h2 class="mt-6 text-3xl font-extrabold text-neutral-600">
+              <h2 className="mt-6 text-3xl font-extrabold text-neutral-600">
                 {" "}
                 Sign Up{" "}
               </h2>
             </div>
-            <div class="mt-8">
-              <div class="mt-6 flex flex-col gap-4">
+            <div className="mt-8">
+              <div className="mt-6 flex flex-col gap-4">
 
                 <div>
                   <label
-                    for="email"
-                    class="block text-sm font-medium text-neutral-600"
+                    htmlFor="email"
+                    className="block text-sm font-medium text-neutral-600"
                   >
                     {" "}
                     Name{" "}
                   </label>
-                  <div class="mt-1">
+                  <div className="mt-1">
                     <input
                       id="name"
                       name="name"
@@ -121,13 +121,13 @@ const SignUp = () => {
                 </div>
                 <div>
                   <label
-                    for="email"
-                    class="block text-sm font-medium text-neutral-600"
+                    htmlFor="email"
+                    className="block text-sm font-medium text-neutral-600"
                   >
                     {" "}
                     Email address{" "}
                   </label>
-                  <div class="mt-1">
+                  <div className="mt-1">
                     <input
                       id="email"
                       name="email"
@@ -141,15 +141,15 @@ const SignUp = () => {
                     />
                   </div>
                 </div>
-                <div class="space-y-1">
+                <div className="space-y-1">
                   <label
-                    for="password"
-                    class="block text-sm font-medium text-neutral-600"
+                    htmlFor="password"
+                    className="block text-sm font-medium text-neutral-600"
                   >
                     {" "}
                     Password{" "}
                   </label>
-                  <div class="mt-1">
+                  <div className="mt-1">
                     <input
                       id="password"
                       name="password"
@@ -165,14 +165,14 @@ const SignUp = () => {
                 </div>
 
 
-                <div class=" flex-col w-full  md:inline-flex md:space-y-0">
-                  <h2 class="block my-5 text-sm font-medium ">Tell About Yourself</h2>
-                  <div class="w-full ">
-                    <div class=" relative ">
-                      <div class="col-span-2">
-                        <label class="text-gray-700" for="aboutyou">
+                <div className=" flex-col w-full  md:inline-flex md:space-y-0">
+                  <h2 className="block my-5 text-sm font-medium ">Tell About Yourself</h2>
+                  <div className="w-full ">
+                    <div className=" relative ">
+                      <div className="col-span-2">
+                        <label className="text-gray-700" htmlFor="aboutyou">
                           <textarea
-                            class="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-sky-900 focus:border-transparent resize-none	"
+                            className="flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-sky-900 focus:border-transparent resize-none	"
                             id="bio"
                             placeholder="Tell us about yourself"
                             name="bio"
@@ -183,18 +183,18 @@ const SignUp = () => {
                       </div>
                     </div>
                   </div>
-                  <div class="text-center md:w-3/12 md:pl-6"></div>
+                  <div className="text-center md:w-3/12 md:pl-6"></div>
                 </div>
-                <div class=" flex-col w-full  text-gray-500 md:inline-flex md:space-y-0">
-                  <h2 class="block my-5 text-sm font-medium text-neutral-600">Enter your Social IDs</h2>
-                  <div class="max-w-sm my-5 mx-auto space-y-5 md:w-3/3">
+                <div className=" flex-col w-full  text-gray-500 md:inline-flex md:space-y-0">
+                  <h2 className="block my-5 text-sm font-medium text-neutral-600">Enter your Social IDs</h2>
+                  <div className="max-w-sm my-5 mx-auto space-y-5 md:w-3/3">
                     <div>
-                      <div class=" relative grid grid-cols-3">
+                      <div className=" relative grid grid-cols-3">
                         <DiGithubBadge className="h-12 w-12 col-span-1" />
                         <input
                           type="url"
                           id="githubID"
-                          class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent col-span-2"
+                          className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent col-span-2"
                           placeholder="Github Link"
                           name="github"
                           onChange={handleChange}
@@ -202,12 +202,12 @@ const SignUp = () => {
                       </div>
                     </div>
                     <div>
-                      <div class=" relative grid grid-cols-3">
+                      <div className=" relative grid grid-cols-3">
                         <AiFillLinkedin className="h-12 w-12 col-span-1" />
                         <input
                           type="url"
                           id="linkedinID"
-                          class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent col-span-2"
+                          className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent col-span-2"
                           placeholder="Linkedin Link"
                           name="linkedin"
                           onChange={handleChange}
@@ -215,12 +215,12 @@ const SignUp = () => {
                       </div>
                     </div>
                     <div>
-                      <div class=" relative grid grid-cols-3">
+                      <div className=" relative grid grid-cols-3">
                         <AiFillTwitterCircle className="h-12 w-12 col-span-1" />
                         <input
                           type="url"
                           id="twitterID"
-                          class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent col-span-2"
+                          className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent col-span-2"
                           placeholder="Twitter Link"
                           name="twitter"
                           onChange={handleChange}
@@ -228,12 +228,12 @@ const SignUp = () => {
                       </div>
                     </div>
                     <div>
-                      <div class=" relative grid grid-cols-3">
+                      <div className=" relative grid grid-cols-3">
                         <IoMdDocument className="h-12 w-12 col-span-1" />
                         <input
                           type="url"
                           id="resumeLink"
-                          class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent col-span-2"
+                          className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent col-span-2"
                           placeholder="Resume Link"
                           name="resume"
                           onChange={handleChange}
@@ -241,12 +241,12 @@ const SignUp = () => {
                       </div>
                     </div>
                     <div>
-                      <div class=" relative grid grid-cols-3">
+                      <div className=" relative grid grid-cols-3">
                         <CgWebsite className="h-12 w-12 col-span-1" />
                         <input
                           type="url"
                           id="portfolioLink"
-                          class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent col-span-2"
+                          className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent col-span-2"
                           placeholder="Portfolio Link"
                           name="website"
                           onChange={handleChange}
@@ -272,9 +272,9 @@ const SignUp = () => {
                 <div className="flex items-center justify-center my-4">
                   <a
                     href="/signup"
-                    class="font-medium text-blue-600 hover:text-blue-500"
+                    className="font-medium text-blue-600 hover:text-blue-500"
                   >
-                    Log In Hear
+                    Log In Here
                   </a>
                 </div>
               </div>

@@ -28,6 +28,6 @@ export async function getServerSideProps(context) {
 
 
     return {
-        props: { data: data.data.data||null }, // will be passed to the page component as props
+        props: { data:data.data.data || null }, // will be passed to the page component as props
     }
 }

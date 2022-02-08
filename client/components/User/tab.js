@@ -1,6 +1,18 @@
-import React from "react";
+import {React,useEffect,useState} from "react";
+import {GetProject} from '../../Api/Api'
 
-const Tab = () => {
+
+const Tab = (data) => {
+  const [project,setProject]=useState(null);
+  useEffect(async() => {
+    const name=await data.data.name;
+    console.log(data.data.name);
+    GetProject({name}).then((dt)=>{
+      setProject(dt);
+      console.log(project);
+    }).catch((e)=>{console.log(e);})
+  },[]);
+
   return (
     <ul class="bg-pink-100 rounded-xl p-1.5 flex mx-7 my-5">
       <li class="flex-1">
