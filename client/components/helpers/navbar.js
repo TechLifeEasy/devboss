@@ -21,7 +21,7 @@ const Navbar = () => {
 
 
   return (
-    <div className="px-4 py-5 mx-auto md:px-24 lg:px-8 shadow ">
+    <div className={` show_pp ${!isMenuOpen && 'px-4 py-5'} mx-auto md:px-24 lg:px-8 shadow z-50`}>
       <div className="relative flex items-center justify-between">
         <div className="flex items-center">
           <a
@@ -151,7 +151,7 @@ const Navbar = () => {
             </svg>
           </button>
           {isMenuOpen && (
-            <div className="absolute top-0 left-0 w-full">
+            <div className="show_pp absolute top-0 left-0 w-full">
               <div className="p-5 bg-white border rounded shadow-sm">
                 <div className="flex items-center justify-between mb-4">
                   <div>

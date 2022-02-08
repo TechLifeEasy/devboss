@@ -3,6 +3,7 @@
 // /import Home from '../components/home/home'
 import { API } from '../../Api/Back'
 import SourcePop from '../../components/source/SourcePop'
+import { get } from '../../Api/url_data'
 
 
 export default function Name({data}) {
@@ -25,6 +26,12 @@ export async function getStaticProps(context) {
         data = await API.get('/sources');
         // console.log(data.data)
         data=data.data.data.find((item)=>item.title==topic);
+        const list=data.courses;
+        for(let i=0;i<list.length;i++){
+          const url_info=await get(data.courses[i].link)
+          console.log(url_info)
+          data.courses[i]={...data.courses[i],...url_info}
+        }
         console.log(data)
         
      

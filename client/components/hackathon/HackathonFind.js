@@ -67,40 +67,63 @@ export default function HackathonFind({ data }) {
   return (
 
     <div>
-      <div className='flex flex-row justify-center gap-2   '>
+      <div className='flex flex-row justify-center gap-2  flex-wrap   '>
         <Search alert={filterData}></Search>
         <button onClick={() => { setFdata(data) }}><GrPowerReset size={20} className='my-auto' /></button>
         {/* <button onClick={()=>{setShow(true)}}><HiFilter className='my-auto mr-10 ' size={30} /></button> */}
       </div>
-      <div className='flex flex-row  gap-3 mt-3 justify-center items-center flex-wrap '>
+      <div className='flex flex-col gap-3 mt-3 justify-center items-center flex-wrap lg:flex-row'>
         {fdata?.map((ele, ind) => {
           return (
-            <div key={ind} className='flex p-1 justify-center items-center  mt-3 shadow-lg shadow-blue-500/50 rounded-lg  flex-col w-1/4 '>
+            <div key={ind} className='flex p-1 justify-center mt-3 shadow-lg shadow-blue-500/50 rounded-lg  flex-col w-3/4 lg:w-1/4 px-3 h-full hover:shadow-2xl'>
               <div className=' flex'>
 
                 <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-sky-900 text-white">
                   <AiOutlineUser></AiOutlineUser>
 
                 </div>
+                <a href={`/user/${ele.creator|| 'zeel  prajapati'}`}>
                 <div className=' pt-2 pl-2 '>
-                  {ele.creator}
+                  {ele.creator || 'zeel  prajapati'}
                 </div>
+                </a>
               </div>
 
-              <div className='flex flex-row w-full  '>
-                <h1 className='font-bold w-full  text-center '>{ele.name}</h1>
-              </div>
-              <p className='font-bold  text-center w-full mr-auto '>{ele.creator}</p>
-              <div className='flex flex-row flex-wrzap items-center text-center justify-center gap-1 '>
-                {(ele.tech).split(",").map((tc) => {
+            
+              <p className='w-full mr-auto pl-2'>Name : {ele.web.title}</p>
+              <div className='flex flex-row flex-wrzap items-center text-center gap-1 my-3'>
+              <div className='p-2'>  Tech : </div>{(ele.tech).split(",").map((tc) => {
                   return (
-                    <p className='bg-sky-200 p-1 mt-2 rounded-xl '>{tc}</p>
+                    <p className='bg-sky-200 p-2 '>{tc}</p>
                   );
                 })}
               </div>
+
+              {/* <p className='w-full mr-auto pl-2'>Link</p> */}
+
               <div className='flex flex-col items-center'>
                 <a href={ele.link} target="_blank"> <HiExternalLink color='white' className='mt-3'></HiExternalLink></a>
                 {/* <a href={ele.contact} target="_blank"> <AiFillLinkedin color='white' className='mt-3'></AiFillLinkedin></a> */}
+              </div>
+              <div className=' px-2 cursor-pointer text-center'>
+              {
+                ele.web.title
+                ?
+
+
+                <a href={ele.web.link} target="_blank">
+                  <div >{ele.web.title}</div>
+                  {/* <div>{linkData.description}</div> */}
+                  <img src={ele.web.img}></img>
+                </a>
+                :
+                <a className=' m-auto ' href={ele.web.link} target="_blank">
+                  <div >None</div>
+                  {/* <div>{linkData.description}</div> */}
+                  <img src='https://opengraph.githubassets.com/a81023c8d62b3fabe6abccc6f8505069397a2d5bf3853f39c31a1b91e750fe23/TechLifeEasy/devboss'></img>
+                </a>
+
+              }
               </div>
 
             </div>
