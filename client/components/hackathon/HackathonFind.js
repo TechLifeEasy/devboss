@@ -75,22 +75,22 @@ export default function HackathonFind({ data }) {
       <div className='flex flex-row  gap-3 mt-3 justify-center items-center flex-wrap '>
         {fdata?.map((ele, ind) => {
           return (
-            <div key={ind} className='flex p-1 justify-center items-center  mt-3 shadow-lg shadow-blue-500/50 rounded-lg bg-sky-800 flex-col w-1/4 '>
+            <div key={ind} className='flex p-1 justify-center items-center  mt-3 shadow-lg shadow-blue-500/50 rounded-lg  flex-col w-1/4 '>
               <div className=' flex'>
 
                 <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-sky-900 text-white">
                   <AiOutlineUser></AiOutlineUser>
 
                 </div>
-                <div className=' pt-2 pl-2 text-white'>
+                <div className=' pt-2 pl-2 '>
                   {ele.creator}
                 </div>
               </div>
 
               <div className='flex flex-row w-full  '>
-                <h1 className='font-bold w-full  text-center text-white'>{ele.name}</h1>
+                <h1 className='font-bold w-full  text-center '>{ele.name}</h1>
               </div>
-              <p className='font-bold  text-center w-full mr-auto text-white'>{ele.creator}</p>
+              <p className='font-bold  text-center w-full mr-auto '>{ele.creator}</p>
               <div className='flex flex-row flex-wrzap items-center text-center justify-center gap-1 '>
                 {(ele.tech).split(",").map((tc) => {
                   return (

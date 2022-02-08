@@ -16,6 +16,21 @@ const Projects = async (req, res) => {
     res.status(200).send(data);
 }
 
+const ProjectsByName = async (req, res) => {
+    try {
+    
+    // const data1=await req.params;
+    // console.log(data1+"sd");
+    const data=await req.data;
+    console.log(data);
+    // const data = await ProjectModal.find({creator:data1.name});
+    // console.log(data);
+    // res.status(200).send(data);
+    } catch (error) {
+        res.status(404).send(error.message);
+    }
+    
+}
 const AddProject = async (req, res) => {
     try {
         let data = { ...req.body, creator: req.userName, state: 'on' };
@@ -91,3 +106,4 @@ exports.Projects = Projects;
 exports.AddProject = AddProject;
 exports.DeleteProject = DeleteProject;
 exports.UpdateProject = UpdateProject;
+exports.ProjectsByName=ProjectsByName

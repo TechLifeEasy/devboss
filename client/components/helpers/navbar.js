@@ -85,7 +85,7 @@ const Navbar = () => {
                     aria-label="Sign in"
                     title="Sign in"
                     className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none">
-                    Longin
+                    Log In
                   </a>
                 </li>
                 <li>
@@ -230,8 +230,8 @@ const Navbar = () => {
                               href="/login"
                               aria-label="Sign in"
                               title="Sign in"
-                              className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none">
-                              Longin
+                             className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none">
+                              Log In
                             </a>
                           </li>
                           <li>

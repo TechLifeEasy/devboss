@@ -4,7 +4,8 @@ import SourceForm from './SourceForm';
 import { AiOutlineUser } from 'react-icons/ai';
 import SourcePop from './SourcePop';
 import ShowPara from '../helpers/fun'
-import { BiUpvote } from 'react-icons/bi';
+import { BiUpvote,BiLike } from 'react-icons/bi';
+
 
 export default function SourceList({data}) {
 
@@ -22,24 +23,20 @@ export default function SourceList({data}) {
 
   return (
     <>
-
-
-
-
-
           <div>
-            <div className={`flex align-middle justify-between 
+            <div className={`flex  align-middle justify-between 
       `}>
-
-              <Search></Search>
+            <div className=' w-full flex items-end justify-end '>
               <button
-                className="h-10 text-white rounded-lg bg-sky-800 hover:bg-sky-600 px-2"
+                className="h-10 text-white rounded-lg  bg-sky-800 hover:bg-sky-600 px-2"
                 onClick={() => {
                   setShowForm(!showForm);
                 }}
 
               >Add Source</button>
+              </div>
             </div>
+              <Search className='mx-auto'></Search>
 
             {
               showForm 
@@ -115,7 +112,7 @@ function Source({ creator,description,title,upVote }) {
        <div>
 
 
-        Up : {upVote.length}
+         <BiLike className='inline' size={20}/> {upVote.length}
        </div>
       
         </p>

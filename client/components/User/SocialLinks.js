@@ -1,46 +1,21 @@
 import React from "react";
+import {AiFillTwitterCircle,AiFillLinkedin,AiFillGithub,AiTwotoneFileImage} from 'react-icons/ai';
+import {BsDiscord} from 'react-icons/bs';
+import {SiFirefoxbrowser} from 'react-icons/si'
 
 const SocialLinks = ({data}) => {
+  console.log(data);
   return (
-    <div className="mx-20 my-10">
-      <div class="shadow-lg rounded-2xl w-full p-4 bg-white dark:bg-gray-800">
-        <div class="flex items-center justify-between gap-4 mt-6">
-          <button
-            type="button"
-            class="w-1/2 px-4 py-2 text-base border rounded-lg text-grey-500 bg-white hover:bg-gray-200 ">
-            <a href={data.github} target="_blank">Github</a>
-          </button>
-          <button
-            type="button"
-            class="w-1/2 px-4 py-2 text-base border rounded-lg text-white bg-indigo-500 hover:bg-indigo-700 ">
-            <a href={data.twitter} target="_blank">Twitter</a>
-          </button>
-        </div>
-        <div class="flex items-center justify-between gap-4 mt-6">
-          <button
-            type="button"
-            class="w-1/2 px-4 py-2 text-base border rounded-lg text-grey-500 bg-white hover:bg-gray-200 ">
-            <a href={data.linkedinj} target="_blank">Linkedin</a>
-          </button>
-          <button
-            type="button"
-            class="w-1/2 px-4 py-2 text-base border rounded-lg text-white bg-indigo-500 hover:bg-indigo-700 ">
-            <a href={data.website} target="_blank">Portfolio</a>
-          </button>
-        </div>
-        <div class="flex items-center justify-between gap-4 mt-6">
-          <button
-            type="button"
-            class="w-1/2 px-4 py-2 text-base border rounded-lg text-grey-500 bg-white hover:bg-gray-200 ">
-            <a href={data.resume} target="_blank">Resume</a>
-          </button>
-          <button
-            type="button"
-            class="w-1/2 px-4 py-2 text-base border rounded-lg text-white bg-indigo-500 hover:bg-indigo-700 ">
-            <a href={data.discord} target="_blank">Discord</a>
-          </button>
-        </div>
-      </div>
+    <div className=" my-10 bg-sky-600 w-1/4 rounded-full p-2 mx-auto   justify-center flex gap-3 flex-row">
+    <a className="bg-white rounded-xl p-1 shadow-lg shadow-black" href={data.github} target="_blank"><AiFillGithub size={30}/></a>
+    <a className="bg-white rounded-xl p-1 shadow-lg shadow-black" href={data.twitter} target="_blank"><AiFillTwitterCircle size={30}/></a>
+    <a className="bg-white rounded-xl p-1 shadow-lg shadow-black" href={data.linkedin} target="_blank"><AiFillLinkedin size={30}/></a>
+    <a className="bg-white rounded-xl p-1 shadow-lg shadow-black" href={data.discord} target="_blank"><BsDiscord size={30}/></a>
+    <a className="bg-white rounded-xl p-1 shadow-lg shadow-black" href={data.resume} target="_blank"><AiTwotoneFileImage size={30}/></a>
+    <a className="bg-white rounded-xl p-1 shadow-lg shadow-black" href={data.website} target="_blank"><SiFirefoxbrowser size={30}/></a>
+
+
+     
     </div>
   );
 };

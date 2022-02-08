@@ -58,10 +58,10 @@ const SignUp = () => {
       {
         isPop.length != 0 && <Pop text={isPop} remove={setIsPop}></Pop>
       }
-      <div class="flex items-center justify-center overflow-hidden">
+      <div className="flex items-center justify-center overflow-hidden">
 
         <div
-          class="
+          className="
             flex flex-col
             justify-center
             flex-1
@@ -72,30 +72,30 @@ const SignUp = () => {
             xl:px-24
           "
         >
-          <div class="w-full max-w-xl mx-auto lg:w-96 gap-3">
+          <div className="w-full max-w-xl mx-auto lg:w-96 gap-3">
             <div>
-              <h2 class="mt-6 text-3xl font-extrabold text-neutral-600">
+              <h2 className="mt-6 text-3xl font-extrabold text-neutral-600">
                 {" "}
                 Log In{" "}
               </h2>
             </div>
-            <div class="mt-8">
-              <div class="mt-6 flex flex-col gap-4">
+            <div className="mt-8">
+              <div className="mt-6 flex flex-col gap-4">
 
                 <div>
                   <label
-                    for="email"
-                    class="block text-sm font-medium text-neutral-600"
+                    htmlFor="email"
+                    className="block text-sm font-medium text-neutral-600"
                   >
                     {" "}
                     Email address{" "}
                   </label>
-                  <div class="mt-1">
+                  <div className="mt-1">
                     <input
                       id="email"
                       name="email"
                       type="email"
-                      autocomplete="email"
+                      autoComplete="email"
                       required=""
                       placeholder="Your Email"
                       onChange={handleChange}
@@ -104,20 +104,20 @@ const SignUp = () => {
                     />
                   </div>
                 </div>
-                <div class="space-y-1">
+                <div className="space-y-1">
                   <label
-                    for="password"
-                    class="block text-sm font-medium text-neutral-600"
+                    htmlFor="password"
+                    className="block text-sm font-medium text-neutral-600"
                   >
                     {" "}
                     Password{" "}
                   </label>
-                  <div class="mt-1">
+                  <div className="mt-1">
                     <input
                       id="password"
                       name="password"
                       type="password"
-                      autocomplete="current-password"
+                      autoComplete="current-password"
                       required=""
                       placeholder="Your Password"
                       onChange={handleChange}
@@ -143,9 +143,9 @@ const SignUp = () => {
                 <div className="flex items-center justify-center my-4">
                   <a
                     href="/signup"
-                    class="font-medium text-blue-600 hover:text-blue-500"
+                    className="font-medium text-blue-600 hover:text-blue-500"
                   >
-                    Sign Up Hear
+                    Already Have an Account? SignUp Here
                   </a>
                 </div>
 

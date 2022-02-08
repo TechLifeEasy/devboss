@@ -83,9 +83,10 @@ export default function ProjectList({ data }) {
 
       <Search></Search>
       <div className='flex flex-row gap-3 mt-3 justify-center items-center flex-wrap '>
-        {data.map((ele, ind) => {
+        {data!==null?
+        data.map((ele, ind) => {
           return (
-            <div key={ind} className='flex p-1 justify-center items-center  mt-3 shadow-lg shadow-blue-500/50 rounded-lg bg-sky-800 flex-col w-1/4 '>
+            <div key={ind} className='flex p-1   mt-3 shadow-lg shadow-blue-5 rounded-lg  flex-col w-1/4 '>
 
               <div className=' flex'>
 
@@ -93,18 +94,18 @@ export default function ProjectList({ data }) {
                   <AiOutlineUser></AiOutlineUser>
 
                 </div>
-                <div className=' pt-2 pl-2 text-white'>
+                <div className=' pt-2 pl-2 '>
                   {ele.creator}
                 </div>
               </div>
 
 
               <div className='flex flex-row w-full  '>
-                <h1 className='font-bold w-full  text-center text-white'>{ele.creator}</h1>
+                <h1 className='font-bold w-full  '>{ele.creator}</h1>
               </div>
-              <p className='font-bold  text-center w-full mr-auto text-white'>{ele.title}</p>
-              <div className='flex flex-col items-center'>
-                <p className='shadow-sky-900 font-bold text-center shadow-lg m-2 bg-sky-200  rounded-sm mt-2 p-2'>{ele.description}</p>
+              <p className='font-bold   w-full mr-auto '>{ele.title}</p>
+              <div className='flex flex-col  '>
+                <p className='shadow-sky-900 font-bold shadow-sm   rounded-sm mt-2 p-2'>{ele.description}</p>
                 {/* {(show===true) && (ind==index) ?<>
             <IoIosArrowDropup onClick={()=>{setShow(!show);setIndex(-1)}} size={25} color='white' className='block mt-2 '/>
           {/* </>:
@@ -112,9 +113,9 @@ export default function ProjectList({ data }) {
               <IoIosArrowDropdown onClick={()=>{setShow(!show); setIndex(ind)}} size={25} color='white' className='block mt-2 '/>
           </>}
              */}
-                <a href={ele.demoLink} target="_blank"> <FiExternalLink color='white' className='mt-3'></FiExternalLink></a>
+                <a href={ele.demoLink} target="_blank"> <FiExternalLink  className='mt-3'></FiExternalLink></a>
               </div>
-              <div className='flex flex-row flex-wrap items-center text-center justify-center gap-1 '>
+              <div className='flex flex-row flex-wrap items-center text-center  gap-1 '>
                 {(ele.tech).split(",").map((tc) => {
                   return (
                     <p className='bg-sky-200 p-1 mt-2 rounded-xl '>{tc}</p>
@@ -136,8 +137,8 @@ export default function ProjectList({ data }) {
 
 
               >
-                <button className=' p-1'><MdOutlineThumbUpOffAlt color='white' /></button>
-                <p className='p-2 mt-0  text-white'>{ele.upVote.length}</p>
+                <button className=' p-1'><MdOutlineThumbUpOffAlt  /></button>
+                <p className='p-2 mt-0  '>{ele.upVote.length}</p>
               </div>
 
               <br />
@@ -145,7 +146,7 @@ export default function ProjectList({ data }) {
 
             </div>
           )
-        })}
+        }):null}
       </div>
 
 
