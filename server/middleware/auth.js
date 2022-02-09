@@ -5,7 +5,7 @@ const secret = process.env.Secrete;
 
 const auth = async (req, res,next) => {
     try {
-      // console.log(req.headers)
+      console.log(req.headers)
       const token = req.headers.authorization.split(" ")[1];
       
       let decodedData;

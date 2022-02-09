@@ -49,7 +49,7 @@ export default function HackathonFind({ data }) {
     data.map((ele) => {
       let x = false;
       ele.tech.split(",").forEach((tec) => {
-        if (arr.includes(tec.toLowerCase())) {
+        if (arr.includes(tec.toLowerCase().trim())) {
           x = true;
         }
       })
@@ -69,10 +69,14 @@ export default function HackathonFind({ data }) {
     <div>
       <div className='flex flex-row justify-center gap-2  flex-wrap   '>
         <Search alert={filterData}></Search>
-        <button onClick={() => { setFdata(data) }}><GrPowerReset size={20} className='my-auto' /></button>
+        <button className='text-white  rounded-lg bg-sky-800 hover:bg-sky-600 px-3 h-10 mt-2'
+
+          onClick={() => { setFdata(data) }}>
+          Refetch
+        </button>
         {/* <button onClick={()=>{setShow(true)}}><HiFilter className='my-auto mr-10 ' size={30} /></button> */}
       </div>
-      <div className='flex flex-col gap-3 mt-3 justify-center items-center flex-wrap lg:flex-row'>
+      <div className='flex flex-col gap-3 mt-3 justify-center  flex-wrap lg:flex-row'>
         {fdata?.map((ele, ind) => {
           return (
             <div key={ind} className='flex p-1 justify-center mt-3 shadow-lg shadow-blue-500/50 rounded-lg  flex-col w-3/4 lg:w-1/4 px-3 h-full hover:shadow-2xl'>
@@ -82,17 +86,17 @@ export default function HackathonFind({ data }) {
                   <AiOutlineUser></AiOutlineUser>
 
                 </div>
-                <a href={`/user/${ele.creator|| 'zeel  prajapati'}`}>
-                <div className=' pt-2 pl-2 '>
-                  {ele.creator || 'zeel  prajapati'}
-                </div>
+                <a href={`/user/${ele.creator || 'zeel  prajapati'}`}>
+                  <div className=' pt-2 pl-2 '>
+                    {ele.creator || 'zeel  prajapati'}
+                  </div>
                 </a>
               </div>
 
-            
+
               <p className='w-full mr-auto pl-2'>Name : {ele.web.title}</p>
               <div className='flex flex-row flex-wrzap items-center text-center gap-1 my-3'>
-              <div className='p-2'>  Tech : </div>{(ele.tech).split(",").map((tc) => {
+                <div className='p-2'>  Tech : </div>{(ele.tech).split(",").map((tc) => {
                   return (
                     <p className='bg-sky-200 p-2 '>{tc}</p>
                   );
@@ -106,24 +110,27 @@ export default function HackathonFind({ data }) {
                 {/* <a href={ele.contact} target="_blank"> <AiFillLinkedin color='white' className='mt-3'></AiFillLinkedin></a> */}
               </div>
               <div className=' px-2 cursor-pointer text-center'>
-              {
-                ele.web.title
-                ?
+                {
+                  ele.web.title
+                    ?
 
 
-                <a href={ele.web.link} target="_blank">
-                  <div >{ele.web.title}</div>
-                  {/* <div>{linkData.description}</div> */}
-                  <img src={ele.web.img}></img>
-                </a>
-                :
-                <a className=' m-auto ' href={ele.web.link} target="_blank">
-                  <div >None</div>
-                  {/* <div>{linkData.description}</div> */}
-                  <img src='https://opengraph.githubassets.com/a81023c8d62b3fabe6abccc6f8505069397a2d5bf3853f39c31a1b91e750fe23/TechLifeEasy/devboss'></img>
-                </a>
+                    <a href={ele.link} target="_blank">
+                      <div >{ele.web.title}</div>
+                      {/* <div>{linkData.description}</div> */}
+                      <img className='h-40 m-auto' src={ele.web.img ||
+                        'https://opengraph.githubassets.com/a81023c8d62b3fabe6abccc6f8505069397a2d5bf3853f39c31a1b91e750fe23/TechLifeEasy/devboss'
 
-              }
+                      }></img>
+                    </a>
+                    :
+                    <a className=' m-auto ' href={ele.web.link} target="_blank">
+                      <div >None</div>
+                      {/* <div>{linkData.description}</div> */}
+                      <img src='https://opengraph.githubassets.com/a81023c8d62b3fabe6abccc6f8505069397a2d5bf3853f39c31a1b91e750fe23/TechLifeEasy/devboss'></img>
+                    </a>
+
+                }
               </div>
 
             </div>

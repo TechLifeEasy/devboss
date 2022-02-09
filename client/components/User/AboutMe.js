@@ -19,7 +19,9 @@ const AboutMe = ({data}) => {
             <div className=" dark:bg-white p-2 w-full h-full">
               <div className="flex items-center justify-between text-xs dark:text-black">
                 <p className=" text-xl text-center w-full">
-                  {data.bio}
+                  
+                  
+                 <Pop text={data.bio}></Pop>
 
                 </p>
               </div>

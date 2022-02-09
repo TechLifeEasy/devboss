@@ -4,13 +4,27 @@ import SourceForm from './SourceForm';
 import { AiOutlineUser } from 'react-icons/ai';
 import SourcePop from './SourcePop';
 import ShowPara from '../helpers/fun'
-import { BiUpvote,BiLike } from 'react-icons/bi';
+import { GrPowerReset } from 'react-icons/gr';
+import { BiUpvote, BiLike } from 'react-icons/bi';
 
 
-export default function SourceList({data}) {
+export default function SourceList({ data }) {
 
   const [showForm, setShowForm] = useState(false);
-
+  const [fdata, setFdata] = useState(data);
+  const filterData = (dt) => {
+    let newData = [];
+    data.map((ele) => {
+      let title = (ele.title);
+      title = title.toLowerCase();
+      if (title.includes(dt.toLowerCase())) {
+        newData.push(ele)
+      }
+    })
+    console.log(newData);
+    setFdata(newData);
+    console.log(newData);
+  }
   // const [showPopPage, setShowPopPage] = useState({ show: false, index: -1 });
 
   // function showPop(index) {
@@ -23,34 +37,48 @@ export default function SourceList({data}) {
 
   return (
     <>
-          <div>
-            <div className={`flex  align-middle justify-between 
+      <div>
+        <div className={`flex  align-middle justify-between 
       `}>
-            <div className=' w-full flex items-end justify-end '>
-              <button
-                className="h-10 text-white rounded-lg  bg-sky-800 hover:bg-sky-600 px-2"
-                onClick={() => {
-                  setShowForm(!showForm);
-                }}
+          <div className=' w-full flex items-center justify-center gap-3 my-3'>
+            <button
+              className="h-10 text-white rounded-lg  bg-sky-800 hover:bg-sky-600 px-2"
+              onClick={() => {
+                setShowForm(false);
+              }}
 
-              >Add Source</button>
-              </div>
-            </div>
-              <Search className='mx-auto'></Search>
+            >Show Source</button>
+            <button
+              className="h-10 text-white rounded-lg  bg-sky-800 hover:bg-sky-600 px-2"
+              onClick={() => {
+                setShowForm(true);
+              }}
 
-            {
-              showForm 
-              
-              ?
-              <SourceForm></SourceForm>
-               :
-               <Sources data={data}></Sources>
-            }
-
-
-
+            >Add Source</button>
           </div>
-      
+        </div>
+        <div className='flex flex-row justify-center gap-2  flex-wrap   '>
+          <Search alert={filterData}></Search>
+          <button className='text-white  rounded-lg bg-sky-800 hover:bg-sky-600 px-3 h-10 mt-2'
+
+            onClick={() => { setFdata(data) }}>
+            Refetch
+          </button>
+        </div>
+
+        {
+          showForm
+
+            ?
+            <SourceForm></SourceForm>
+            :
+            <Sources data={fdata}></Sources>
+        }
+
+
+
+      </div>
+
     </>
 
   );
@@ -58,7 +86,7 @@ export default function SourceList({data}) {
 
 // const demo = [1, 2, 3, 4, 4, 5, 6, 7]
 
-function Sources({ data}) {
+function Sources({ data }) {
   return (
 
     <div>
@@ -67,7 +95,7 @@ function Sources({ data}) {
       <div className={`relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4 my-5 `}>
         {
           data.map((data, index) => {
-            return <Source  key={data._id} index={index} {...data}
+            return <Source key={data._id} index={index} {...data}
             ></Source>
           })
         }
@@ -79,7 +107,7 @@ function Sources({ data}) {
 }
 
 
-function Source({ creator,description,title,upVote }) {
+function Source({ creator, description, title, upVote }) {
 
   return (
     <div className=" cursor-pointer flex flex-col justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl"
@@ -87,12 +115,12 @@ function Source({ creator,description,title,upVote }) {
 
 
         () => {
-          window.location.href='/source_one/'+title;
+          window.location.href = '/source_one/' + title;
         }
 
       }>
 
-      <div className="p-5">
+      <div className="p-5 pb-0">
         <div className=' flex'>
 
           <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-sky-900 text-white">
@@ -105,17 +133,19 @@ function Source({ creator,description,title,upVote }) {
         </div>
         <p className="mb-2 font-bold"> {title}</p>
         <p className="text-sm leading-5 text-gray-900">
-        <ShowPara text=  {description.substring(0,100)+"..."}></ShowPara>
+          <ShowPara text={description.substring(0, 100) + "..."}></ShowPara>
         </p>
-        <p className="flex items-center text-gray-900 ">
-        
-       <div>
+        <div className="flex gap-2 my-3  items-center text-gray-900 flex-row">
 
+          <div>
 
-         <BiLike className='inline' size={20}/> {upVote.length}
-       </div>
-      
-        </p>
+            <BiLike size={20} />
+          </div>
+          <div>
+            {upVote.length}
+          </div>
+
+        </div>
       </div>
       <div className="w-full h-1 ml-auto duration-300 origin-left transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100" />
     </div>

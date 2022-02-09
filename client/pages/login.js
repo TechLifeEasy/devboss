@@ -7,6 +7,7 @@ import React, { useState ,useEffect} from "react";
 import Load from "../components/helpers/Load";
 import Pop from "../components/helpers/Pop";
 import { SingIn } from "../Api/Api";
+import { isEmpty } from "../components/helpers/isEmpty";
 
 const SignUp = () => {
   const [data, setData] = useState({
@@ -27,6 +28,12 @@ const SignUp = () => {
     console.log(data)
 
     setIsLoadding(true);
+
+    if(isEmpty(data)){
+      setIsPop('All Fields are require')
+      setIsLoadding(false);
+      return;
+    }
 
     SingIn(data)
       .then((data) => {

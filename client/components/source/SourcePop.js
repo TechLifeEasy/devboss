@@ -1,6 +1,6 @@
 import React , {useEffect, useState}from 'react';
 import { BsBookmarkCheckFill } from 'react-icons/bs'
-import { BiUpvote } from 'react-icons/bi';
+import { BiLike } from 'react-icons/bi';
 import { UpdateSource } from '../../Api/Api'
 import { get } from '../../Api/url_data';
 // import Source from '../../pages/source';
@@ -97,7 +97,7 @@ export default function SourcePop({ data }) {
 
           }}
           className='flex cursor-pointer  hover:bg-green-400 rounded-lg p-2 hover:text-white w-fit  items-center text-2xl'>
-          <BiUpvote></BiUpvote>
+           <BiLike  />
 
           <div
 
@@ -151,18 +151,19 @@ function Cources({ data,index }) {
           }
         </p>
 
-        <p className="mt-4 font-bold">
+        <p className="mt-5">
           <a href={data.link} target="_blank">
             Link
           </a>
         </p>
 
-        <div className='mt-2'>
+        <div className=' flex items-center  ju'>
+
       
             <a href={data.link} target="_blank">
             <div>{data.title}</div>
             {/* <div>{linkData.description}</div> */}
-            <img src={data.img}></img>
+            <img className=' m-auto my-3 w-full' src={data.img}></img>
             </a>
           
         </div>

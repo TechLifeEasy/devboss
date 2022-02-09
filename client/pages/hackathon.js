@@ -11,7 +11,7 @@ export default function Hackathon({data}) {
     console.log(data)
     return (
         <div>
-            <div className='flex flex-row justify-end mr-5'>
+            <div className='flex flex-row justify-center mr-5 my-3'>
                 <button onClick={() => { setShow(false) }} className='bg-sky-600 m-2 p-2 rounded-xl text-slate-100 hover:bg-sky-800'>Show Hackathons</button>
                 <button onClick={() => { setShow(true) }} className='bg-sky-600 m-2 p-2 rounded-xl text-slate-100 hover:bg-sky-800'>Add Hackathon</button>
             </div>

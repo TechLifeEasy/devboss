@@ -3,12 +3,33 @@ import Search from '../helpers/Search'
 import { FiExternalLink } from 'react-icons/fi'
 import { IoIosArrowDropdown, IoIosArrowDropup } from 'react-icons/io'
 import { MdOutlineThumbUpOffAlt, MdOutlineThumbDown } from 'react-icons/md';
+import {GrPowerReset} from 'react-icons/gr';
 import { AiOutlineUser } from 'react-icons/ai'
 import { UpdateProject } from '../../Api/Api';
 
 export default function ProjectList({ data }) {
   const [show, setShow] = useState(false);
   const [index, setIndex] = useState(-1);
+  const [fdata, setFdata] = useState(data);
+  const filterData = (dt) => {
+    let newData = [];
+    let arr = dt.split(",");
+    arr = arr.map(name => name.toLowerCase());
+    data.map((ele) => {
+      let x = false;
+      ele.tech.split(",").forEach((tec) => {
+        console.log(tec);
+        if (arr.includes(tec.toLowerCase().trim())) {
+          x = true;
+        }
+      })
+      if (x)
+        newData.push(ele)
+    })
+    console.log(newData);
+    setFdata(newData);
+    console.log(newData);
+  }
   // const data=[{
   // title: "Stock Market Prediction",
   // description: "dassdas asdasdnjasnd asdhjsadnjds nsjadknasdn jdsjnjsadn",
@@ -80,13 +101,19 @@ export default function ProjectList({ data }) {
   return (
 
     <div>
-
-      <Search></Search>
-      <div className='flex flex-col gap-3 mt-3 justify-center items-center flex-wrap  lg:flex-row'>
-        {data !== null ?
-          data.map((ele, ind) => {
+ <div className='flex flex-row justify-center gap-2  flex-wrap'>
+      <Search alert={filterData}></Search>
+      <button className='text-white  rounded-lg bg-sky-800 hover:bg-sky-600 px-3 h-10 mt-2'
+      
+      onClick={() => { setFdata(data) }}>
+        Refetch
+      </button>
+      </div>
+      <div className='relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4 my-5 w-10/12 m-auto'>
+        {fdata !== null ?
+          fdata.map((ele, ind) => {
             return (
-              <div key={ind} className='flex p-1   mt-3 shadow-lg shadow-blue-5 cursor-pointer rounded-lg  flex-col w-3/4 lg:w-1/4 hover:shadow-2xl pl-3'>
+              <div key={ind} className='flex p-1   mt-3 shadow-lg shadow-blue-5 cursor-pointer rounded-lg  flex-col hover:shadow-2xl pl-4'>
 
                 <div className=' flex'>
 
@@ -122,7 +149,7 @@ export default function ProjectList({ data }) {
                     &&
 
 
-                    <a href={ele.demoLink} className="my-3" target="_blank"> Link</a>
+                    <a href={ele.demoLink} className="my-3" target="_blank"> <FiExternalLink/></a>
                   }
                 </div>
                 <div className='flex flex-row flex-wrap items-center text-center  gap-1 '>

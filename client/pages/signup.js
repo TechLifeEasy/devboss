@@ -7,6 +7,7 @@ import { IoMdDocument } from "react-icons/io";
 import { CgWebsite } from "react-icons/cg";
 import Load from "../components/helpers/Load";
 import Pop from "../components/helpers/Pop";
+import { isEmpty } from "../components/helpers/isEmpty";
 
 import { SingUp } from "../Api/Api";
 
@@ -14,15 +15,13 @@ const SignUp = () => {
   const [data, setData] = useState({
     "name": "",
     "bio": "",
-    "image": ".",
     "email": "",
     "password": "",
     "github":"",
     "twitter":"",
     "linkedin":"",
-    "website":"",
+    "website":"#",
     "resume":"",
-    "discord":""
   });
   const [isLoading, setIsLoadding] = useState(false);
   const [isPop, setIsPop] = useState('');
@@ -46,7 +45,15 @@ const SignUp = () => {
   const handleSubmit = () => {
     console.log(data)
 
+    
+
     setIsLoadding(true);
+
+    if(isEmpty(data)){
+      setIsPop('All Fields are require')
+      setIsLoadding(false);
+      return;
+    }
 
     SingUp(data)
       .then((data) => {
