@@ -1,7 +1,7 @@
 import React from "react";
 import { AiFillGithub, AiOutlineFundProjectionScreen } from "react-icons/ai";
 
-const ProfileCard = () => {
+const ProfileCard = ({ele}) => {
   return (
     <div className="mx-10 my-10">
       <a class="block overflow-hidden bg-white shadow-xl rounded-2xl" href="">
