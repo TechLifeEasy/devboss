@@ -110,7 +110,7 @@ const Navbar = () => {
                   </a>
                 </li>
                 <li>
-                  <a
+                  <div
                     href={`/user/${user}`}
                     className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
                     aria-label="Sign up"
@@ -123,7 +123,7 @@ const Navbar = () => {
                     }}
                   >
                     <BiExit className="w-6 h-6" />
-                  </a>
+                  </div>
                 </li>
               </>
           }
@@ -247,16 +247,16 @@ const Navbar = () => {
                         :
                         <>
                           <li>
-                            <div
+                            <a
                               href={`/user/${user}`}
                               className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
                               aria-label="Sign up"
                               title="Sign up">
                               <CgProfile className="w-6 h-6" />
-                            </div>
+                            </a>
                           </li>
                           <li>
-                            <a
+                            <div
                               href={`/user/${user}`}
                               className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
                               aria-label="Sign up"
@@ -269,7 +269,7 @@ const Navbar = () => {
                               }}
                             >
                               <BiExit className="w-6 h-6" />
-                            </a>
+                            </div>
                           </li>
                         </>
                     }

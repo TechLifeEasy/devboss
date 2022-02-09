@@ -14,7 +14,7 @@ const Tab = (data) => {
   },[]);
 
   return (
-    <ul class="bg-pink-100 rounded-xl p-1.5 flex mx-7 my-5">
+    <ul class=" rounded-xl p-1.5 flex mx-7 my-5">
       <li class="flex-1">
         <a
           class="block p-2 text-sm text-pink-700 bg-white rounded-lg shadow-sm"
@@ -26,7 +26,7 @@ const Tab = (data) => {
         </a>
       </li>
 
-      <li class="flex-1">
+      {/* <li class="flex-1">
         <a
           class="block p-2 text-sm font-medium text-pink-700 rounded-lg"
           href="">
@@ -35,7 +35,7 @@ const Tab = (data) => {
             Hackathons{" "}
           </span>
         </a>
-      </li>
+      </li> */}
     </ul>
   );
 };
