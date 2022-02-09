@@ -49,7 +49,7 @@ export default function HackathonFind({ data }) {
     data.map((ele) => {
       let x = false;
       ele.tech.split(",").forEach((tec) => {
-        if (arr.includes(tec.toLowerCase())) {
+        if (arr.includes(tec.toLowerCase().trim())) {
           x = true;
         }
       })

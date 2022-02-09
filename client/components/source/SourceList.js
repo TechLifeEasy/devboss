@@ -4,13 +4,27 @@ import SourceForm from './SourceForm';
 import { AiOutlineUser } from 'react-icons/ai';
 import SourcePop from './SourcePop';
 import ShowPara from '../helpers/fun'
+import {GrPowerReset} from 'react-icons/gr';
 import { BiUpvote,BiLike } from 'react-icons/bi';
 
 
 export default function SourceList({data}) {
 
   const [showForm, setShowForm] = useState(false);
-
+  const [fdata, setFdata] = useState(data);
+  const filterData = (dt) => {
+    let newData = [];
+    data.map((ele) => {
+      let title=(ele.title);
+      title=title.toLowerCase();
+      if(title.includes(dt.toLowerCase())){
+        newData.push(ele)
+      }
+    })
+    console.log(newData);
+    setFdata(newData);
+    console.log(newData);
+  }
   // const [showPopPage, setShowPopPage] = useState({ show: false, index: -1 });
 
   // function showPop(index) {
@@ -36,7 +50,10 @@ export default function SourceList({data}) {
               >Add Source</button>
               </div>
             </div>
-              <Search className='mx-auto'></Search>
+            <div className='flex flex-row justify-center gap-2  flex-wrap   '>
+            <Search  alert={filterData}></Search>
+            <button onClick={() => { setFdata(data) }}><GrPowerReset size={20} className='my-auto' /></button>
+            </div>
 
             {
               showForm 
@@ -44,7 +61,7 @@ export default function SourceList({data}) {
               ?
               <SourceForm></SourceForm>
                :
-               <Sources data={data}></Sources>
+               <Sources data={fdata}></Sources>
             }
 
 

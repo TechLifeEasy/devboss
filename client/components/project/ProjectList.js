@@ -3,12 +3,33 @@ import Search from '../helpers/Search'
 import { FiExternalLink } from 'react-icons/fi'
 import { IoIosArrowDropdown, IoIosArrowDropup } from 'react-icons/io'
 import { MdOutlineThumbUpOffAlt, MdOutlineThumbDown } from 'react-icons/md';
+import {GrPowerReset} from 'react-icons/gr';
 import { AiOutlineUser } from 'react-icons/ai'
 import { UpdateProject } from '../../Api/Api';
 
 export default function ProjectList({ data }) {
   const [show, setShow] = useState(false);
   const [index, setIndex] = useState(-1);
+  const [fdata, setFdata] = useState(data);
+  const filterData = (dt) => {
+    let newData = [];
+    let arr = dt.split(",");
+    arr = arr.map(name => name.toLowerCase());
+    data.map((ele) => {
+      let x = false;
+      ele.tech.split(",").forEach((tec) => {
+        console.log(tec);
+        if (arr.includes(tec.toLowerCase().trim())) {
+          x = true;
+        }
+      })
+      if (x)
+        newData.push(ele)
+    })
+    console.log(newData);
+    setFdata(newData);
+    console.log(newData);
+  }
   // const data=[{
   // title: "Stock Market Prediction",
   // description: "dassdas asdasdnjasnd asdhjsadnjds nsjadknasdn jdsjnjsadn",
@@ -80,11 +101,13 @@ export default function ProjectList({ data }) {
   return (
 
     <div>
-
-      <Search></Search>
+ <div className='flex flex-row justify-center gap-2  flex-wrap   '>
+      <Search alert={filterData}></Search>
+      <button onClick={() => { setFdata(data) }}><GrPowerReset size={20} className='my-auto' /></button>
+      </div>
       <div className='flex flex-col gap-3 mt-3 justify-center items-center flex-wrap  lg:flex-row'>
-        {data !== null ?
-          data.map((ele, ind) => {
+        {fdata !== null ?
+          fdata.map((ele, ind) => {
             return (
               <div key={ind} className='flex p-1   mt-3 shadow-lg shadow-blue-5 cursor-pointer rounded-lg  flex-col w-3/4 lg:w-1/4 hover:shadow-2xl pl-3'>
 
