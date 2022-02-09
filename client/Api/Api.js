@@ -29,9 +29,7 @@ const UpdateSource = (data) => APIWithToken.put('/sources/update', data);
 
 const AddProject = (data) => APIWithToken.post('/projects/add', data);
 const UpdateProject = (data) => APIWithToken.put('/projects/update', data);
-const GetProject =(data)=> APIWithToken.get('/projects/byname',{data:{
-    name:data
-}});
+const GetProject =(data)=> APIWithToken.post('/projects/byname',data);
 
 const AddFind = (data) => APIWithToken.post('/finds/add', data);
 // const UpdateProject = (data) => APIWithToken.put('/projects/update', data);

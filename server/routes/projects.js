@@ -7,11 +7,11 @@ const {auth}=require('../middleware/auth')
 
 // console.log(Projects);
 router.get('/',Projects);
-router.get('/byname',ProjectsByName)
+router.post('/byname',auth,ProjectsByName)
 router.post('/add',auth,AddProject);
 router.put('/update',auth,UpdateProject);
 router.delete('/delete',auth,DeleteProject);
 
-// //op
+// //op 
 
 module.exports = router;
