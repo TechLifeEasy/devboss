@@ -122,7 +122,7 @@ export default function ProjectList({ data }) {
                     &&
 
 
-                    <a href={ele.demoLink} className="my-3" target="_blank"> Link</a>
+                    <a href={ele.demoLink} className="my-3" target="_blank"> <FiExternalLink/></a>
                   }
                 </div>
                 <div className='flex flex-row flex-wrap items-center text-center  gap-1 '>
