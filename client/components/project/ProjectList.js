@@ -113,7 +113,10 @@ export default function ProjectList({ data }) {
         {fdata !== null ?
           fdata.map((ele, ind) => {
             return (
-              <div key={ind} className='flex p-1   mt-3 shadow-lg shadow-blue-5 cursor-pointer rounded-lg  justify-between flex-col hover:shadow-2xl pl-4'>
+              <div key={ind} onClick={()=>{
+                  window.location.href='/project_one/'+ele.title;
+              }} 
+              className='flex p-1   mt-3 shadow-lg shadow-blue-5 cursor-pointer rounded-lg  justify-between flex-col hover:shadow-2xl pl-4'>
 
                 <div className=' flex'>
 
