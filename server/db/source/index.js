@@ -46,14 +46,14 @@ const AddSourceInDataBase = async (userName, data) => {
 
 const GetSourcesInDB = async () => {
 
-    const data = await SourceModal.find({});
+    const data = await SourceModal.find({}).sort([['createdAt', -1]]);
     return data;
 
 
 }
 const GetSourcesByTitleInDB = async () => {
 
-    const data = await SourceModal.find({});
+    const data = await SourceModal.find({}).sort([['createdAt', -1]]);
     return data;
 
 

@@ -113,7 +113,7 @@ export default function ProjectList({ data }) {
         {fdata !== null ?
           fdata.map((ele, ind) => {
             return (
-              <div key={ind} className='flex p-1   mt-3 shadow-lg shadow-blue-5 cursor-pointer rounded-lg  flex-col hover:shadow-2xl pl-4'>
+              <div key={ind} className='flex p-1   mt-3 shadow-lg shadow-blue-5 cursor-pointer rounded-lg  justify-between flex-col hover:shadow-2xl pl-4'>
 
                 <div className=' flex'>
 
@@ -136,7 +136,7 @@ export default function ProjectList({ data }) {
                 <p className='font-bold   w-full mr-auto '>{ele.title}</p>
                 <div className='flex flex-col  '>
 
-                  <p className='shadow-sky-900 rounded-sm mt-2 '>{ele.description}</p>
+                  <p className='shadow-sky-900 rounded-sm mt-2 '>{ele.description.substring(0, 100) + `${ele.description.length>100 && '...'}`}</p>
                   {/* {(show===true) && (ind==index) ?<>
             <IoIosArrowDropup onClick={()=>{setShow(!show);setIndex(-1)}} size={25} color='white' className='block mt-2 '/>
           {/* </>:

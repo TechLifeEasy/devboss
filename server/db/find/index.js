@@ -2,7 +2,7 @@ const {FindModal} =require('../connections/Schema');
 
 const Finds=async(req,res)=>{
     try {
-        const data=await FindModal.find({});
+        const data=await FindModal.find({}).sort([['createdAt', -1]]);
         if(data)
         res.status(200).send(data);
         else

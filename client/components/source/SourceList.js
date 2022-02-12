@@ -6,7 +6,7 @@ import SourcePop from './SourcePop';
 import ShowPara from '../helpers/fun'
 import { GrPowerReset } from 'react-icons/gr';
 import { BiUpvote, BiLike } from 'react-icons/bi';
-
+import Fade from 'react-reveal/Fade';
 
 export default function SourceList({ data }) {
 
@@ -95,8 +95,13 @@ function Sources({ data }) {
       <div className={`relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4 my-5 `}>
         {
           data.map((data, index) => {
-            return <Source key={data._id} index={index} {...data}
+            return (
+              <Fade bottom>
+
+            <Source key={data._id} index={index} {...data}
             ></Source>
+            </Fade>
+            )
           })
         }
       </div>
@@ -120,7 +125,7 @@ function Source({ creator, description, title, upVote }) {
 
       }>
 
-      <div className="p-5 pb-0">
+      <div className="flex flex-col h-full justify-between p-5 pb-0">
         <div className=' flex'>
 
           <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-sky-900 text-white">
@@ -132,8 +137,8 @@ function Source({ creator, description, title, upVote }) {
           </div>
         </div>
         <p className="mb-2 font-bold"> {title}</p>
-        <p className="text-sm leading-5 text-gray-900">
-          <ShowPara text={description.substring(0, 100) + "..."}></ShowPara>
+        <p className="text-sm leading-5 text-gray-900 h-20">
+          <ShowPara text={description.substring(0, 100) + `${description.length>100 && '...'}`}></ShowPara>
         </p>
         <div className="flex gap-2 my-3  items-center text-gray-900 flex-row">
 

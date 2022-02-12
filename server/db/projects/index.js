@@ -11,7 +11,7 @@ const { ProjectModal } = require('../connections/Schema');
 //     isIdea:Boolean
 
 const Projects = async (req, res) => {
-    const data = await ProjectModal.find({});
+    const data = await ProjectModal.find({}).sort([['createdAt', -1]]);
     console.log(data);
     res.status(200).send(data);
 }

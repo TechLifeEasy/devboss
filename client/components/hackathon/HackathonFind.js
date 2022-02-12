@@ -79,7 +79,7 @@ export default function HackathonFind({ data }) {
       <div className='flex flex-col gap-3 mt-3 justify-center  flex-wrap lg:flex-row'>
         {fdata?.map((ele, ind) => {
           return (
-            <div key={ind} className='flex p-1 justify-center mt-3 shadow-lg shadow-blue-500/50 rounded-lg  flex-col w-3/4 lg:w-1/4 px-3 h-full hover:shadow-2xl'>
+            <div key={ind} className='flex p-1 justify-between mt-3 shadow-lg shadow-blue-500/50 rounded-lg  flex-col w-3/4 lg:w-1/4 px-3 h-full hover:shadow-2xl'>
               <div className=' flex'>
 
                 <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-sky-900 text-white">
