@@ -1,8 +1,9 @@
-import React , {useEffect, useState}from 'react';
-import { BsBookmarkCheckFill } from 'react-icons/bs'
-import { BiLike } from 'react-icons/bi';
-import { UpdateSource } from '../../Api/Api'
-import { get } from '../../Api/url_data';
+import React, { useEffect, useState } from "react";
+import { BsBookmarkCheckFill } from "react-icons/bs";
+import { BiLike } from "react-icons/bi";
+import { UpdateSource } from "../../Api/Api";
+import { get } from "../../Api/url_data";
+import { DeleteSource } from "../../Api/Api";
 // import Source from '../../pages/source';
 
 // const data = {
@@ -30,81 +31,65 @@ import { get } from '../../Api/url_data';
 //   upVote: ['zeel', 'zeel123', 'zeel3222']
 // }
 
-
-
 export default function SourcePop({ data }) {
-
   //console.log(data)
 
-  return (
+  const [userName, setuserName] = useState("");
 
-    <div className='w-full h-full z-50 top-0
+  useEffect(() => {
+    let userName_e = localStorage.getItem("User")
+      ? JSON.parse(localStorage.getItem("User")).data.name
+      : "";
+
+    setuserName(userName_e);
+  }, []);
+
+  return (
+    <div
+      className="w-full h-full z-50 top-0
     py-10  left-0 flex flex-col pl-7 bg-white gap-6
      overflow-auto
 
      lg:w-11/12 lg:m-auto lg:left-1/2
-    '>
+    "
+    >
+      <h1 className=" text-3xl">{data.title}</h1>
 
-
-      <h1 className=' text-3xl'>{data.title}</h1>
-
-      <div className='flex gap-2 text-xl'>
+      <div className="flex gap-2 text-xl">
         <div> Tech : </div>
         <div> {data.tech} </div>
       </div>
-      <div className='flex flex-col gap-2'>
-        <div className='text-xl'> Path description  </div>
+      <div className="flex flex-col gap-2">
+        <div className="text-xl"> Path description </div>
         <div>
-          {
-
-            data.description.split('/n').map((data) => {
-              return <div className='py-2'>{data}</div>
-            })
-
-
-          }
+          {data.description.split("\n").map((data) => {
+            return <div className="py-2">{data}</div>;
+          })}
         </div>
       </div>
 
-      <div className='flex flex-col gap-2'>
-        <div> Courses  </div>
+      <div className="flex flex-col gap-2">
+        <div> Courses </div>
         <div className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4 my-5">
-          {
-
-            data.courses.map((data, index) => {
-
-              return (
-              <Cources data={data} key={index} index={index}></Cources>
-              )
-            })
-
-
-          }
+          {data.courses.map((data, index) => {
+            return <Cources data={data} key={index} index={index}></Cources>;
+          })}
         </div>
       </div>
 
-      <div className='flex ml-2 items-center text-xl gap-2'>
-
+      <div className="flex ml-2 items-center text-xl gap-2">
         Up Votes :
-
         <div
           onClick={() => {
-
-            UpdateSource({ title: data.title, type: "vote" })
-              .then(() => {
-                window.location.reload();
-              })
-
+            UpdateSource({ title: data.title, type: "vote" }).then(() => {
+              window.location.reload();
+            });
           }}
-          className='flex cursor-pointer  hover:bg-green-400 rounded-lg p-2 hover:text-white w-fit  items-center text-2xl'>
-           <BiLike  />
+          className="flex cursor-pointer  hover:bg-green-400 rounded-lg p-2 hover:text-white w-fit  items-center text-2xl"
+        >
+          <BiLike />
 
-          <div
-
-
-          >
-            {data.upVote.length}
-          </div>
+          <div>{data.upVote.length}</div>
         </div>
       </div>
 
@@ -114,41 +99,42 @@ export default function SourcePop({ data }) {
         onClick={() => showPop(-1)}
       > x</button> */}
 
-
+      <div>
+        {data.creator == userName && (
+          <button
+            className="p-4 bg-red-500  text-white"
+            onClick={() => {
+              DeleteSource({ title: data.title })
+                .then(() => {
+                  window.location.href = "/source";
+                })
+                .catch((e) => console.log(e));
+            }}
+          >
+            Delete
+          </button>
+        )}
+      </div>
     </div>
   );
 }
 
-
-function Cources({ data,index }) {
- 
-
-
-
+function Cources({ data, index }) {
   return (
-    <div className=" cursor-pointer flex flex-col justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl"
-    >
-
+    <div className=" cursor-pointer flex flex-col justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl">
       <div className="p-5">
-        <div className=' flex'>
-
+        <div className=" flex">
           <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-sky-900 text-white">
             <BsBookmarkCheckFill></BsBookmarkCheckFill>
 
-
-            <div className=''>
-              {index}
-            </div>
-
+            <div className="">{index}</div>
           </div>
         </div>
 
         <p className="text-sm leading-5 text-gray-900">
-          {
-            data.about.split('/n').map((data) => {
-              return <div>{data}</div>
-            })
-          }
+          {data.about.split("/n").map((data) => {
+            return <div>{data}</div>;
+          })}
         </p>
 
         <p className="mt-5">
@@ -157,18 +143,15 @@ function Cources({ data,index }) {
           </a>
         </p>
 
-        <div className=' flex items-center  ju'>
-
-      
-            <a href={data.link} target="_blank">
+        <div className=" flex items-center  ju">
+          <a href={data.link} target="_blank">
             <div>{data.title}</div>
             {/* <div>{linkData.description}</div> */}
-            <img className=' m-auto my-3 w-full' src={data.img}></img>
-            </a>
-          
+            <img className=" m-auto my-3 w-full" src={data.img}></img>
+          </a>
         </div>
       </div>
       <div className="w-full h-1 ml-auto duration-300 origin-left transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100" />
     </div>
-  )
+  );
 }

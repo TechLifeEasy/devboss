@@ -12,7 +12,7 @@ const {Finds,AddFind,DeleteFind} =require('../db/find/index.js');
 router.get('/',Finds);
 router.post('/add',auth,AddFind);
 // router.put('/update',UpdateFind);
-router.delete('/delete',DeleteFind);
+router.post('/delete',DeleteFind);
 
 
 module.exports = router;

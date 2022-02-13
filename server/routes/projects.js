@@ -10,7 +10,7 @@ router.get('/',Projects);
 router.post('/byname',ProjectsByName)
 router.post('/add',auth,AddProject);
 router.put('/update',auth,UpdateProject);
-router.delete('/delete',auth,DeleteProject);
+router.post('/delete',auth,DeleteProject);
 
 // //op 
 

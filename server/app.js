@@ -40,7 +40,7 @@ app.use(function (req, res, next) {
   next(createError(404));
 });
 
-console.log=()=>{}
+// console.log=()=>{}
 
 
 if (process.env.NODE_ENV === 'production') {

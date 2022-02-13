@@ -112,7 +112,7 @@ const Navbar = () => {
                 <li>
                   <div
                     href={`/user/${user}`}
-                    className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-sky-700 hover:bg-sky-800 focus:shadow-outline focus:outline-none"
+                    className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-sky-700 hover:bg-sky-800 focus:shadow-outline focus:outline-none cursor-pointer"
                     aria-label="Sign up"
                     title="Sign up"
                     onClick={() => {

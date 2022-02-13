@@ -33,7 +33,7 @@ const DeleteFind=async(req,res)=>{
     try{
         const data=await req.body;
         console.log(data);
-        let resp=await FindModal.deleteOne({name:data.name});    
+        let resp=await FindModal.deleteOne({creator:data.name,link:data.link});    
         if(resp){
             res.status(200).send("Hackathon Successfully Deleted");
         }else{

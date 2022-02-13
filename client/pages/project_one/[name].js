@@ -24,7 +24,7 @@ export async function getStaticProps(context) {
     try{
 
         data = await API.get('/projects');
-        console.log(data.data)
+        // console.log(data.data)
         data=data.data.find((item)=>item.title===topic);
         // const list=data.courses;
         // for(let i=0;i<list.length;i++){
@@ -32,7 +32,7 @@ export async function getStaticProps(context) {
         //   console.log(url_info)
         //   data.courses[i]={...data.courses[i],...url_info}
         // }
-        console.log(data)
+        // console.log(data)
         
      
     }catch(e){

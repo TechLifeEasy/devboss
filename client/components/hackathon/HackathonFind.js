@@ -3,8 +3,17 @@ import Search from '../helpers/Search'
 import { HiExternalLink, HiFilter } from 'react-icons/hi';
 import { AiOutlineUser } from 'react-icons/ai';
 import { GrPowerReset } from 'react-icons/gr';
+import { DeleteFind } from '../../Api/Api';
 
 export default function HackathonFind({ data }) {
+  const [userName, setuserName] = useState('');
+
+  useEffect(()=>{
+
+    let userName_e= (localStorage.getItem('User')?JSON.parse(localStorage.getItem('User')).data.name :'')
+
+    setuserName(userName_e)
+  },[])
   // const data=[{
   //     name:"webathon",
   //     creator:"Baburao",
@@ -109,7 +118,7 @@ export default function HackathonFind({ data }) {
                 <a href={ele.link} target="_blank"> <HiExternalLink color='black' size={25} className='mt-3'></HiExternalLink></a>
                 {/* <a href={ele.contact} target="_blank"> <AiFillLinkedin color='white' className='mt-3'></AiFillLinkedin></a> */}
               </div>
-              <div className=' px-2 cursor-pointer text-center'>
+              <div className=' px-2 cursor-pointer text-center mb-3'>
                 {
                   ele.web.title
                     ?
@@ -132,6 +141,30 @@ export default function HackathonFind({ data }) {
 
                 }
               </div>
+
+              <div className=' m-auto justify-end items-end'>
+          {
+            ele.creator==userName
+
+            &&
+          <button  className='p-4 bg-red-500  text-white' onClick={
+            ()=>{
+
+              DeleteFind({link:ele.link,name:ele.creator}).then(()=>
+              {
+
+                window.location.href='/hackathon'
+
+              }).catch((e)=>console.log(e))
+
+          }}>
+            Delete
+          </button>
+          }
+
+        </div>
+
+              
 
             </div>
           )

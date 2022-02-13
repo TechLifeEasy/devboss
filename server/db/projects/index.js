@@ -26,7 +26,7 @@ const ProjectsByName = async (req, res) => {
 
     // const name=req.userName;
     const data = await ProjectModal.find({creator:name});
-    console.log(data);
+    // console.log(data);
     res.status(200).send(data);
     } catch (error) {
         console.log(error)
@@ -37,7 +37,7 @@ const ProjectsByName = async (req, res) => {
 const AddProject = async (req, res) => {
     try {
         let data = { ...req.body, creator: req.userName, state: 'on' };
-        console.log(data);
+        // console.log(data);
         const instance = await new ProjectModal(data);
         const resp = await instance.save();
         if (resp) {
@@ -53,7 +53,7 @@ const AddProject = async (req, res) => {
 
 const DeleteProject = async (req, res) => {
     try {
-        const data = await req.body;
+        const data = req.body;
         console.log(data);
 
         let resp = await ProjectModal.deleteOne({ title: data.title });

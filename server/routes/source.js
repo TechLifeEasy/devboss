@@ -15,7 +15,7 @@ router.get('/',Sources );
 router.post('/add',auth,AddSource);
 router.put('/update',auth,UpdateDataSource);
 // //op
-router.delete('/delete',auth,DeleteSource);
+router.post('/delete',auth,DeleteSource);
 
 
 
