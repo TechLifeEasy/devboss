@@ -40,6 +40,8 @@ app.use(function (req, res, next) {
   next(createError(404));
 });
 
+console.log=()=>{}
+
 
 if (process.env.NODE_ENV === 'production') {
   const { PORT = 3000, LOCAL_ADDRESS = '0.0.0.0' } = process.env

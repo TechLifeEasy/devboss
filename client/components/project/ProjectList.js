@@ -18,7 +18,7 @@ export default function ProjectList({ data }) {
     data.map((ele) => {
       let x = false;
       ele.tech.split(",").forEach((tec) => {
-        console.log(tec);
+        //console.log(tec);
         if (arr.includes(tec.toLowerCase().trim())) {
           x = true;
         }
@@ -26,9 +26,9 @@ export default function ProjectList({ data }) {
       if (x)
         newData.push(ele)
     })
-    console.log(newData);
+    //console.log(newData);
     setFdata(newData);
-    console.log(newData);
+    //console.log(newData);
   }
   // const data=[{
   // title: "Stock Market Prediction",
@@ -168,7 +168,7 @@ export default function ProjectList({ data }) {
                         window.location.reload();
                       }).catch((e) => {
                         {
-                          console.log(e);
+                          //console.log(e);
                         }
                       })
 

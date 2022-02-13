@@ -4,7 +4,7 @@ import { API } from '../Api/Back'
 
 
 export default function Source({ data }) {
-    console.log(data)
+    //console.log(data)
     return (
         <div className=' w-10/12 mx-auto py-5'>
             <List data={data}></List>
@@ -23,7 +23,7 @@ export async function getServerSideProps(context) {
         
      
     }catch(e){
-        console.log(e.message);
+        //console.log(e.message);
     }
 
 

@@ -6,7 +6,7 @@ import { API } from '../Api/Back'
 
 export default function Projects({data}) {
     const[show,setShow]=useState(false);
-    console.log(data)
+    //console.log(data)
     return (
         <div>
             <div className='flex flex-row justify-center mr-5 my-5'>
@@ -38,7 +38,7 @@ export async function getServerSideProps(context) {
         
      
     }catch(e){
-        console.log(e.message);
+        //console.log(e.message);
     }
 
 

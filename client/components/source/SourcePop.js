@@ -34,7 +34,7 @@ import { get } from '../../Api/url_data';
 
 export default function SourcePop({ data }) {
 
-  console.log(data)
+  //console.log(data)
 
   return (
 

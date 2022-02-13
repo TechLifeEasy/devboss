@@ -10,8 +10,8 @@ import { AiFillLike, AiOutlineUser } from 'react-icons/ai'
 const Tab = (data) => {
   const [project,setProject]=useState([]);
   useEffect(async() => {
-    const name=await data.data.name;
-    console.log(data.data.name);
+    const name=data.data.name;
+    // console.log(data.data.name);
     GetProject({name}).then((dt)=>{
       // dt=JSON.stringify(dt.data[0])
 
@@ -20,7 +20,7 @@ const Tab = (data) => {
       dt.data.forEach(element => {
         p.push(element)
       });
-      console.log(p);
+      // console.log(p);
       setProject(p);
       // project.map((e)=>{console.log(e.title);})
     }).catch((e)=>{console.log(e);})

@@ -33,7 +33,7 @@ export default function ProjectForm() {
   const save = (e) => {
     e.preventDefault();
     // all values gathered here make post req 
-    // console.log(values);
+    // //console.log(values);
 
     setIsLoadding(true);
 
@@ -41,7 +41,7 @@ export default function ProjectForm() {
       .then((data) => {
         window.location.reload()
       }).catch((e) => {
-        console.log(e);
+        //console.log(e);
         setIsPop('Some Thing Went Wrong !!')
       })
       .finally(() => {

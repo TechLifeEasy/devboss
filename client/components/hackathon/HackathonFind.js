@@ -57,7 +57,7 @@ export default function HackathonFind({ data }) {
         newData.push(ele)
     })
     setFdata(newData);
-    console.log(newData);
+    //console.log(newData);
   }
 
   // useEffect(() => {

@@ -43,7 +43,7 @@ const SignUp = () => {
   };
 
   const handleSubmit = () => {
-    console.log(data)
+    //console.log(data)
 
     
 
@@ -60,7 +60,7 @@ const SignUp = () => {
         localStorage.setItem('User',JSON.stringify(data.data));
         window.location.href='/'
       }).catch((e)=>{
-        console.log(e);
+        //console.log(e);
         setIsPop('Some Thing Went Wrong !!')
       })
       .finally(() => {

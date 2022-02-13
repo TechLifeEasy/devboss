@@ -2,7 +2,7 @@ import React, { useReducer, useState } from 'react';
 import Load from "../helpers/Load";
 import Pop from "../helpers/Pop";
 import {AddSource} from '../../Api/Api'
-import Fade from 'react-reveal/Fade';
+
 // title: String,
 // description: String,
 // courses: [{

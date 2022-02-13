@@ -27,7 +27,7 @@ export default function HackathonShow() {
   const save = () => {
 
     // make a server side post request from here
-    // console.log(values);
+    // ////console.log(values);
 
     setIsLoadding(true);
 
@@ -35,7 +35,7 @@ export default function HackathonShow() {
       .then((data) => {
         window.location.reload()
       }).catch((e) => {
-        console.log(e);
+        //console.log(e);
         setIsPop('Some Thing Went Wrong !!')
       })
       .finally(() => {

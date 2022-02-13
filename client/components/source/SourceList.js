@@ -21,15 +21,15 @@ export default function SourceList({ data }) {
         newData.push(ele)
       }
     })
-    console.log(newData);
+    //console.log(newData);
     setFdata(newData);
-    console.log(newData);
+    //console.log(newData);
   }
   // const [showPopPage, setShowPopPage] = useState({ show: false, index: -1 });
 
   // function showPop(index) {
 
-  //   console.log(index)
+  //   //console.log(index)
 
   //   setShowPopPage({ show: !showPopPage.show, index })
 

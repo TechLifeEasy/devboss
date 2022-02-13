@@ -6,7 +6,7 @@ import User from '../../components/User/User'
 
 
 export default function Name({data}) {
-    console.log(data)
+    //console.log(data)
   return (
     <div>
      <User data={data}></User>
@@ -23,13 +23,13 @@ export async function getStaticProps(context) {
     try{
 
         data = await API.get('/users/p/'+name);
-        // // console.log(data.data)
+        // // //console.log(data.data)
         // data=data.data.data.find((item)=>item.title==topic);
-        console.log(data)
+        //console.log(data)
         
      
     }catch(e){
-        console.log(e.message);
+        //console.log(e.message);
     }
 
 

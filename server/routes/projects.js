@@ -7,7 +7,7 @@ const {auth}=require('../middleware/auth')
 
 // console.log(Projects);
 router.get('/',Projects);
-router.post('/byname',auth,ProjectsByName)
+router.post('/byname',ProjectsByName)
 router.post('/add',auth,AddProject);
 router.put('/update',auth,UpdateProject);
 router.delete('/delete',auth,DeleteProject);

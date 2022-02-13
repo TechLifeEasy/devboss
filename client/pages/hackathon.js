@@ -8,7 +8,7 @@ import { get } from "../Api/url_data";
 
 export default function Hackathon({data}) {
     const [show, setShow] = useState(false);
-    console.log(data)
+    //console.log(data)
     return (
         <div>
             <div className='flex flex-row justify-center mr-5 my-3'>
@@ -42,7 +42,7 @@ export async function getServerSideProps(context) {
             let info=await get(data.data[i].link)
             data.data[i]={...data.data[i],web:info}
         }
-        console.log(data.data)
+        //console.log(data.data)
      
     }catch(e){
         console.log(e.message);

@@ -7,7 +7,7 @@ import { get } from '../../Api/url_data'
 
 
 export default function Name({data}) {
-    console.log(data)
+    //console.log(data)
   return (
     <div>
      <SourcePop data={data}></SourcePop>
@@ -24,19 +24,19 @@ export async function getStaticProps(context) {
     try{
 
         data = await API.get('/sources');
-        // console.log(data.data)
+        // //console.log(data.data)
         data=data.data.data.find((item)=>item.title==topic);
         const list=data.courses;
         for(let i=0;i<list.length;i++){
           const url_info=await get(data.courses[i].link)
-          console.log(url_info)
+          //console.log(url_info)
           data.courses[i]={...data.courses[i],...url_info}
         }
-        console.log(data)
+        //console.log(data)
         
      
     }catch(e){
-        console.log(e.message);
+        //console.log(e.message);
     }
 
 

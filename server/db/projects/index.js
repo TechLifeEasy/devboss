@@ -19,16 +19,17 @@ const Projects = async (req, res) => {
 const ProjectsByName = async (req, res) => {
     try {
     
-    // const data1=await req.params;
+    const {name}=req.body;
     // console.log(data1+"sd");
     // const data1= req.body;
-    // console.log(data1+'dfdsfdsfd');
+    // console.log(data1,'dfdsfdsfd');
 
-    const name=req.userName;
+    // const name=req.userName;
     const data = await ProjectModal.find({creator:name});
     console.log(data);
     res.status(200).send(data);
     } catch (error) {
+        console.log(error)
         res.status(404).send(error.message);
     }
     
