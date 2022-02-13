@@ -100,6 +100,7 @@ const DeleteSourceInDB = async (userName, data) => {
 
     let isf = await SourceModal.findOne({ title: data.title });
 
+    console.log(data)
     if (isf == null) {
         throw new Error('Title Not Exits');
     }

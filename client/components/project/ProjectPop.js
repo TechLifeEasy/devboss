@@ -5,7 +5,7 @@ import {FiExternalLink} from 'react-icons/fi';
 import { UpdateProject, UpdateSource } from '../../Api/Api'
 import { get } from '../../Api/url_data';
 
-import { DeleteSource } from '../../Api/Api';
+import { DeleteProject } from '../../Api/Api';
 
 
 
@@ -86,7 +86,7 @@ export default function ProjectPop({ data }) {
           <button  className='p-4 bg-red-500  text-white' onClick={
             ()=>{
 
-              DeleteSource({title:data.title}).then(()=>
+              DeleteProject({title:data.title}).then(()=>
               {
 
                 window.location.href='/project'

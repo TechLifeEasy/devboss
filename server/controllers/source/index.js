@@ -51,7 +51,7 @@ const DeleteSource =async (req,res) => {
 
     try {
 
-        console.log('call')
+        console.log(req.body)
 
         const data = await DeleteSourceInDB(req.userName,req.body);
         return res.status(200).send({ info: 'Users Updated', data });
