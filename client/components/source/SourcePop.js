@@ -67,7 +67,7 @@ export default function SourcePop({ data }) {
       </div>
 
       <div className='flex flex-col gap-2'>
-        <div> Cources  </div>
+        <div> Courses  </div>
         <div className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4 my-5">
           {
 
