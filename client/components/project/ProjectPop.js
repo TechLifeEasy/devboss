@@ -10,25 +10,17 @@ import { get } from '../../Api/url_data';
 export default function ProjectPop({ data }) {
   console.log(data)
   return (
-    <div className='w-full h-full z-50 
-    py-10  left-0 flex flex-col pl-7 bg-white gap-6
-     overflow-auto border-2
-
-     lg:w-11/12 lg:m-auto lg:left-1/2
-    '>
-
-
-      <h1 className='   text-3xl'>{data.title}</h1>
-
+    <div className='flex flex-col  w-1/3  gap-2
+     mx-auto mt-3 border-2 p-2 border-sky-800 rounded-xl shadow-lg shadow-sky-400 mb-5 hover:shadow-black'>
+      <h1 className='text-center bg-sky-800 p-2  rounded-3xl font-serif text-white   text-3xl'>{data.title}</h1>
       <div className='flex gap-2 text-xl'>
         <div> Tech : </div>
         <div> {data.tech} </div>
       </div>
       <div className='flex flex-col gap-2'>
-        <div className='text-xl underline'> Path description:  </div>
+        <div className='text-xl underline'> Project description:  </div>
         <div>
           {
-
             data.description.split('/n').map((data) => {
               return <div className='py-2'>{data}</div>
             })
@@ -41,12 +33,12 @@ export default function ProjectPop({ data }) {
                     &&
 
 
-                    <a href={data.demoLink} className="my-3" target="_blank"> <FiExternalLink/></a>
+                    <a href={data.demoLink} target="_blank"> <FiExternalLink/></a>
                   }
       </div>
 
       
-      <div className='flex ml-2 items-center text-xl gap-2'>
+      <div className='flex items-center text-xl gap-2'>
         
         Up Votes :
 
@@ -59,7 +51,7 @@ export default function ProjectPop({ data }) {
               })
 
           }}
-          className='flex cursor-pointer  hover:bg-green-400 rounded-lg p-2 hover:text-white w-fit  items-center text-2xl'>
+          className='flex cursor-pointer  hover:bg-sky-400 rounded-lg p-2 hover:text-white w-fit  items-center text-2xl'>
            <BiLike  />
 
           <div
